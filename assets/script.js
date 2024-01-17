@@ -1,1 +1,0 @@
-console.log('We are going to make a great job with this website');
