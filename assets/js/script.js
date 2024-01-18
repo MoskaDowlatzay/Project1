@@ -1,6 +1,6 @@
 console.log('We are going to make a great job with this website');
 const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
-const mealApiKey = '1'
+// const mealApiKey = '1'
 
 function getRandomNews() {
     const queryUrl = `https://newsapi.org/v2/everything?q=recipe&apiKey=${newsApiKey}`
@@ -29,3 +29,8 @@ function getRecipeByCountries() {
     })
 }
 getRecipeByCountries();
+
+$('#american').on('click', function() {
+    console.log('button is clicked')
+    console.log($('#american').text())
+})
