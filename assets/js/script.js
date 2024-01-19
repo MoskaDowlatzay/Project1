@@ -22,7 +22,7 @@ function getRandomNews() {
             newsDate.push(dayjs(data.articles[i].publishedAd).format('DD/HH/YYYY'));
             newsUrl.push(data.articles[0].url);
         }
-        // create news blocks pull data from arrays
+        // create news blocks pull data from arrays // card html element might change! 
         for (let i=0; i<newsTitle.length; i++) {
             const createNewsEl = 
             `  <div class="card col-lg-3 col-md-4 col-sm-12" id="card4" style="width: 18rem;">
@@ -54,7 +54,7 @@ function getRecipeByCountries() {
         console.log('jpeg: ' + data.meals[0].strMealThumb)
     })
 }
-getRecipeByCountries();
+;
 
 // when country is selected it 
     // calls renders button and 
@@ -63,6 +63,7 @@ getRecipeByCountries();
 $('#american').on('click', function() {
     console.log('button is clicked')
     console.log($('#american').text())
+    getRecipeByCountries()
 })
 
 // need a function to render buttons and if one country from dropdown selected display the country button on html
