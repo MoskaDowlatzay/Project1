@@ -8,10 +8,10 @@ function getRandomNews() {
     fetch(queryUrl).then(function (response) {
         return response.json();
     }).then(function(data) {
-        console.log(data); // check data in console
-        console.log('title: ' + data.articles[0].title )
-        console.log('date: ' + dayjs(data.articles[0].publishedAd).format('DD/HH/YYYY'))
-        console.log('read more url: ' + data.articles[0].url)
+        // console.log(data); // check data in console
+        // console.log('title: ' + data.articles[0].title )
+        // console.log('date: ' + dayjs(data.articles[0].publishedAd).format('DD/HH/YYYY'))
+        // console.log('read more url: ' + data.articles[0].url)
         let newsTitle = [];
         let newsDate = [];
         let newsUrl = [];
@@ -33,7 +33,7 @@ function getRandomNews() {
               <a href="`+ newsUrl[i] + `" class="btn btn-primary">Read the article</a>
             </div>`
             $('.articleCards').append(createNewsEl);
-            console.log(createNewsEl);
+            // console.log(createNewsEl);
         }
 
     })
@@ -41,20 +41,63 @@ function getRandomNews() {
 getRandomNews();
 
 // fetch to get random recipe to check data / it need to be selected by country
+
+let allSelectedCountries = [];
+let selectedCountry = 'Canadian';
 function getRecipeByCountries() {
-    const queryUrlMeal = `https://www.themealdb.com/api/json/v1/1/random.php`
+    // at first we need to get countries it give only food name and img
+    const queryUrlMeal = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${selectedCountry}`
     fetch(queryUrlMeal).then(function (response) {
         return response.json();
     }).then(function(data) {
         console.log(data); // check data in console
-        console.log('country: ' + data.meals[0].strArea)
-        console.log('name: ' +data.meals[0].strMeal)
-        console.log('instruction: ' + data.meals[0].strInstructions)
-        console.log('url: ' + data.meals[0].strSource)
-        console.log('jpeg: ' + data.meals[0].strMealThumb)
+        // console.log('country: ' + data.meals[0].strArea)
+        // console.log('name: ' +data.meals[0].strMeal)
+        // console.log('instruction: ' + data.meals[0].strInstructions)
+        // console.log('url: ' + data.meals[0].strSource)
+        // console.log('jpeg: ' + data.meals[0].strMealThumb)
+        let mealName = [];
+        let mealImg = [];
+        let mealUrl = [];
+        let mealInst = [];
+        for (let i = 0; i<4; i++) {
+            mealName.push(data.meals[i].strMeal);
+            mealImg.push(data.meals[i].strMealThumb);
+        }
+        console.log(mealName, mealImg);
+        // need another fetch to get and console all recipes (4pcs) related to country
+        for (let i=0; i<mealName.length; i++) {
+            let mealNameOne = mealName[i];
+            const queryUrlMealDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameOne}`;
+            fetch(queryUrlMealDetails).then(function (response) {
+                return response.json();
+            }).then(function(data){
+                // console.log(data.meals[0].strSource)
+                mealUrl.push(data.meals[0].strSource);
+                mealInst.push(data.meals[0].strInstructions);
+                console.log(mealUrl);
+                console.log(mealInst)
+            })
+        }
+        for (let i=0; i<mealName.length; i++) {
+            const createRecipeEl = 
+            `<div class="card">
+            <img src="`+ mealUrl[i] +`" class="card-img-top" alt="..."/>
+            <div class="card-body">
+              <h5 class="card-title">`+mealName[i] +`</h5>
+              <p class="card-text">
+                `+mealInst[i]+`
+              </p>
+              <a href=`+mealUrl[i]+`" class="btn btn" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
+            </div>
+          </div>`
+            $('.showsNear').append(createRecipeEl);
+            console.log(createRecipeEl);
+        }
+
     })
-}
-;
+};
+getRecipeByCountries();
 
 // when country is selected it 
     // calls renders button and 
