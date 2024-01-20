@@ -67,18 +67,25 @@ $('.dropdown-item').on('click', function() {
     // getRecipeByCountries()
 })
 
-let countryBtn = $('.dropdown-item');
+
+// need a function to render buttons and if one country from dropdown selected display the country button on html
+// let countryBtn = $('.dropdown-item');
 let selectedCities;
+let countryBtn = $('.dropdown-item');
+let count=0;
 function renderBtn() {
-    console.log('render btn is called');
-    $('.selected-countries-container').empty();
-    $.each(countryBtn, function(i, country) {
-        console.log('button text: ' + countryBtn.text())
-        const createBtn = $('<button>').addClass('btn btn-primay').attr('data-name', country).text('hello');
-        $('.selected-countries-container').append(createBtn);
+    // console.log('render btn is called');
+    // $('.selected-countries-container').empty();
+    countryBtn.each(function() {
+        count++;
+        console.log(count);
+        console.log(countryBtn.text());
+
+        // const createBtn = $('<button>').addClass('btn btn-primay').attr('data-name', country).text('hello');
+        // $('.selected-countries-container').append(createBtn);
     })
 }
-// need a function to render buttons and if one country from dropdown selected display the country button on html
+
 
 // need a function to render recipe cards or update their content from API on website
 
