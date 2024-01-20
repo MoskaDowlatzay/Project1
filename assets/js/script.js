@@ -2,7 +2,7 @@ console.log('We are going to make a great job with this website');
 const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
 // const mealApiKey = '1'
 
-// fetch to get random recipe related news from news API
+// fetch to get random recipe related news from news API / it works, displays 4 news /html will change, createEl should be updated
 function getRandomNews() {
     const queryUrl = `https://newsapi.org/v2/everything?q=recipe&apiKey=${newsApiKey}`
     fetch(queryUrl).then(function (response) {
@@ -20,7 +20,7 @@ function getRandomNews() {
         for (let i=0; i< numberOfNews; i++) {
             newsTitle.push(data.articles[i].title);
             newsDate.push(dayjs(data.articles[i].publishedAd).format('DD/HH/YYYY'));
-            newsUrl.push(data.articles[0].url);
+            newsUrl.push(data.articles[i].url);
         }
         // create news blocks pull data from arrays // card html element might change! 
         for (let i=0; i<newsTitle.length; i++) {
@@ -60,12 +60,24 @@ function getRecipeByCountries() {
     // calls renders button and 
     // calls function that display recipes related to that country
     // store country and displayed recipies in local storage
-$('#american').on('click', function() {
+$('.dropdown-item').on('click', function() {
     console.log('button is clicked')
-    console.log($('#american').text())
-    getRecipeByCountries()
+    // console.log($('#american').text())
+    renderBtn();
+    // getRecipeByCountries()
 })
 
+let countryBtn = $('.dropdown-item');
+let selectedCities;
+function renderBtn() {
+    console.log('render btn is called');
+    $('.selected-countries-container').empty();
+    $.each(countryBtn, function(i, country) {
+        console.log('button text: ' + countryBtn.text())
+        const createBtn = $('<button>').addClass('btn btn-primay').attr('data-name', country).text('hello');
+        $('.selected-countries-container').append(createBtn);
+    })
+}
 // need a function to render buttons and if one country from dropdown selected display the country button on html
 
 // need a function to render recipe cards or update their content from API on website
