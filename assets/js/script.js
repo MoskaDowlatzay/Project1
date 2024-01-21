@@ -25,12 +25,13 @@ function getRandomNews() {
         // create news blocks pull data from arrays // card html element might change! 
         for (let i=0; i<newsTitle.length; i++) {
             const createNewsEl = 
-            `  <div class="card col-lg-3 col-md-4 col-sm-12" id="card4" style="width: 18rem;">
+            `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+            <div class="card">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">` + newsTitle[i] +  `</h5>
               <p class="card-text">Published: ` + newsDate[i] + ` </p>
-              <a href="`+ newsUrl[i] + `" class="btn btn-primary">Read the article</a>
+              <a href="`+ newsUrl[i] + `" class="btn" style="color: white; background-color: rgb(58,110,52)">Read the article</a>
             </div>`
             $('.articleCards').append(createNewsEl);
             // console.log(createNewsEl);
@@ -63,6 +64,7 @@ function getRecipeByCountries() {
         for (let i = 0; i<4; i++) {
             mealName.push(data.meals[i].strMeal);
             mealImg.push(data.meals[i].strMealThumb);
+            console.log(data.meals[i].strMealThumb)
         }
         console.log(mealName, mealImg);
         // need another fetch to get and console all recipes (4pcs) related to country
@@ -75,30 +77,49 @@ function getRecipeByCountries() {
                 // console.log(data.meals[0].strSource)
                 mealUrl.push(data.meals[0].strSource);
                 mealInst.push(data.meals[0].strInstructions);
-                console.log(mealUrl);
-                console.log(mealInst)
+
             })
         }
+        console.log(typeof(mealUrl));
+        console.log(typeof(mealInst));
+        const instValue = Object.values(mealInst);
+
+        console.log(Object.keys(mealInst));
+        console.log(Object.values(mealUrl));
+        console.log(mealInst);
+        for (const key in mealUrl) {
+            if (mealUrl.hasOwnProperty(key)) {
+                const value = mealUrl[key];
+                console.log(value);
+            }
+
+        }
+
         for (let i=0; i<mealName.length; i++) {
             const createRecipeEl = 
-            `<div class="card">
+            `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+            <div class="card">
             <img src="`+ mealUrl[i] +`" class="card-img-top" alt="..."/>
             <div class="card-body">
-              <h5 class="card-title">`+mealName[i] +`</h5>
+              <h5 class="card-title">`+ mealName[i] +`</h5>
               <p class="card-text">
                 `+mealInst[i]+`
               </p>
-              <a href=`+mealUrl[i]+`" class="btn btn" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
+              <a href=`+mealUrl[i]+` class="btn btn" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
             </div>
+          </div>
           </div>`
             $('.showsNear').append(createRecipeEl);
-            console.log(createRecipeEl);
+            // console.log(createRecipeEl);
         }
 
     })
 };
 getRecipeByCountries();
 
+
+
+// const storedCountries = JSON.parse(localStorage.getItem('selected-cities')) || []; // set localstorage / needs to be commented out still display countries doesn't work properly
 // when country is selected it 
     // calls renders button and 
     // calls function that display recipes related to that country
@@ -108,6 +129,8 @@ $('.dropdown-item').on('click', function() {
     // console.log($('#american').text())
     renderBtn();
     // getRecipeByCountries()
+
+    // localStorage.setItem('selected-countries', JSON.stringify(selectedCities));     // set localstorage / needs to be commented out, still we cannot display contries properly
 })
 
 
