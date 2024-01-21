@@ -1,4 +1,3 @@
-console.log('We are going to make a great job with this website');
 const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
 // const mealApiKey = '1'
 
@@ -43,7 +42,6 @@ getRandomNews();
 
 // fetch to get random recipe to check data / it need to be selected by country
 
-let allSelectedCountries = [];
 let selectedCountry = 'Canadian';
 function getRecipeByCountries() {
     // at first we need to get countries it give only food name and img
@@ -118,37 +116,49 @@ function getRecipeByCountries() {
 getRecipeByCountries();
 
 
-
-
-// // need a function to render buttons and if one country from dropdown selected display the country button on html
-// // let countryBtn = $('.dropdown-item');
-// let selectedCities;
-// let countryBtn = $('.dropdown-item');
-// let count=0;
-// function renderBtn() {
-//     // console.log('render btn is called');
-//     // $('.selected-countries-container').empty();
-//     countryBtn.each(function() {
-//         count++;
-//         console.log(count);
-//         console.log(countryBtn.text());
-
-//         // const createBtn = $('<button>').addClass('btn btn-primay').attr('data-name', country).text('hello');
-//         // $('.selected-countries-container').append(createBtn);
-//     })
-// }
-
-
-// need a function to render recipe cards or update their content from API on website
+const storedCountries = JSON.parse(localStorage.getItem('selected-countries')) || []; // set localstorage / needs to be commented out still display countries doesn't work properly
+// when country is selected it 
+    // calls renders button and 
+    // calls function that display recipes related to that country
+    // store country and displayed recipies in local storage
+    // $('.dropdown-item').on('click', function() {
+    //     console.log('button is clicked')
+        // console.log($('#american').text())
+        // renderBtn();
+        // getRecipeByCountries()
+    
+        // localStorage.setItem('selected-countries', JSON.stringify(selectedCities));     // set localstorage / needs to be commented out, still we cannot display contries properly
+    // })
 
 // Iterate through each dropdown item and perform an action
+let selectedCountries = [];
 $('.dropdown-item').each(function(index, element) {
-
     const countryName = $(element).text().trim();
-
-    console.log('Country Name:', countryName);
-    
+    // console.log('Country Name:', countryName);
     $(element).on('click', function() {
-        console.log('Clicked on:', countryName);
+        // console.log('Clicked on:', countryName);
+        selectedCountries.push(countryName);
+        selectedCountry = countryName;
+        console.log(selectedCountry)
+        localStorage.setItem('selected-countries', JSON.stringify(selectedCountries));
+        console.log(selectedCountries);
+        renderBtn();
+        changeSelectedCountry(countryName);
     });
+    
 });
+
+function renderBtn() {
+    $('.selected-countries-container').empty();
+    for (let i = 0; i < selectedCountries.length; i++) {
+        const creatBtn = `<div class="button-container mx-3 border rounded">
+        <button class="btn" type="submit">`+ selectedCountries[i] +`</button><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div> `
+      $('.selected-countries-container').append(creatBtn);
+      console.log(creatBtn);
+    }
+}
+
+function changeSelectedCountry(newVal) {
+    selectedCountry = newVal;
+}
