@@ -99,6 +99,9 @@ function getRecipeByCountries() {
 };
 getRecipeByCountries();
 
+
+
+// const storedCountries = JSON.parse(localStorage.getItem('selected-cities')) || []; // set localstorage / needs to be commented out still display countries doesn't work properly
 // when country is selected it 
     // calls renders button and 
     // calls function that display recipes related to that country
@@ -108,6 +111,8 @@ $('.dropdown-item').on('click', function() {
     // console.log($('#american').text())
     renderBtn();
     // getRecipeByCountries()
+
+    // localStorage.setItem('selected-countries', JSON.stringify(selectedCities));     // set localstorage / needs to be commented out, still we cannot display contries properly
 })
 
 
