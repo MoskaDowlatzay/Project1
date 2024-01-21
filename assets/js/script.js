@@ -119,40 +119,36 @@ getRecipeByCountries();
 
 
 
-// const storedCountries = JSON.parse(localStorage.getItem('selected-cities')) || []; // set localstorage / needs to be commented out still display countries doesn't work properly
-// when country is selected it 
-    // calls renders button and 
-    // calls function that display recipes related to that country
-    // store country and displayed recipies in local storage
-$('.dropdown-item').on('click', function() {
-    console.log('button is clicked')
-    // console.log($('#american').text())
-    renderBtn();
-    // getRecipeByCountries()
 
-    // localStorage.setItem('selected-countries', JSON.stringify(selectedCities));     // set localstorage / needs to be commented out, still we cannot display contries properly
-})
-
-
-// need a function to render buttons and if one country from dropdown selected display the country button on html
+// // need a function to render buttons and if one country from dropdown selected display the country button on html
+// // let countryBtn = $('.dropdown-item');
+// let selectedCities;
 // let countryBtn = $('.dropdown-item');
-let selectedCities;
-let countryBtn = $('.dropdown-item');
-let count=0;
-function renderBtn() {
-    // console.log('render btn is called');
-    // $('.selected-countries-container').empty();
-    countryBtn.each(function() {
-        count++;
-        console.log(count);
-        console.log(countryBtn.text());
+// let count=0;
+// function renderBtn() {
+//     // console.log('render btn is called');
+//     // $('.selected-countries-container').empty();
+//     countryBtn.each(function() {
+//         count++;
+//         console.log(count);
+//         console.log(countryBtn.text());
 
-        // const createBtn = $('<button>').addClass('btn btn-primay').attr('data-name', country).text('hello');
-        // $('.selected-countries-container').append(createBtn);
-    })
-}
+//         // const createBtn = $('<button>').addClass('btn btn-primay').attr('data-name', country).text('hello');
+//         // $('.selected-countries-container').append(createBtn);
+//     })
+// }
 
 
 // need a function to render recipe cards or update their content from API on website
 
+// Iterate through each dropdown item and perform an action
+$('.dropdown-item').each(function(index, element) {
 
+    const countryName = $(element).text().trim();
+
+    console.log('Country Name:', countryName);
+    
+    $(element).on('click', function() {
+        console.log('Clicked on:', countryName);
+    });
+});
