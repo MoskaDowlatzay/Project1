@@ -115,39 +115,6 @@ function getRecipeByCountries() {
 };
 getRecipeByCountries();
 
-
-const storedCountries = JSON.parse(localStorage.getItem('selected-countries')) || []; // set localstorage / needs to be commented out still display countries doesn't work properly
-// when country is selected it 
-    // calls renders button and 
-    // calls function that display recipes related to that country
-    // store country and displayed recipies in local storage
-    // $('.dropdown-item').on('click', function() {
-    //     console.log('button is clicked')
-        // console.log($('#american').text())
-        // renderBtn();
-        // getRecipeByCountries()
-    
-        // localStorage.setItem('selected-countries', JSON.stringify(selectedCities));     // set localstorage / needs to be commented out, still we cannot display contries properly
-    // })
-
-// Iterate through each dropdown item and perform an action
-let selectedCountries = [];
-$('.dropdown-item').each(function(index, element) {
-    const countryName = $(element).text().trim();
-    // console.log('Country Name:', countryName);
-    $(element).on('click', function() {
-        // console.log('Clicked on:', countryName);
-        selectedCountries.push(countryName);
-        selectedCountry = countryName;
-        console.log(selectedCountry)
-        localStorage.setItem('selected-countries', JSON.stringify(selectedCountries));
-        console.log(selectedCountries);
-        renderBtn();
-        changeSelectedCountry(countryName);
-    });
-    
-});
-
 function renderBtn() {
     $('.selected-countries-container').empty();
     for (let i = 0; i < selectedCountries.length; i++) {
@@ -158,7 +125,46 @@ function renderBtn() {
       console.log(creatBtn);
     }
 }
+const storedCountries = JSON.parse(localStorage.getItem('selected-countries')) || [];  
 
-function changeSelectedCountry(newVal) {
-    selectedCountry = newVal;
-}
+// Iterate through each dropdown item and perform an action
+let selectedCountries = storedCountries; //set storedCountries to selectedCountries to save display data after reload the page
+$('.dropdown-item').each(function(index, element) {
+    const countryName = $(element).text().trim();
+    // console.log('Country Name:', countryName);
+    $(element).on('click', function() {
+        // console.log('Clicked on:', countryName);
+        if (!selectedCountries.includes(countryName)) { //to avoid btn duplication
+            selectedCountries.push(countryName);           
+        }
+        selectedCountry = countryName;
+        console.log(selectedCountry)
+        localStorage.setItem('selected-countries', JSON.stringify(selectedCountries)); //store data in loca storage
+        console.log(selectedCountries);
+        renderBtn(); //call render btn to display buttons
+        changeSelectedCountry(countryName);
+    });
+});
+renderBtn();
+
+// when closing tag on button is clicked delete countryname from local storage and from array / figure out how to delete from dislplay without reloading the page
+$('.close').each(function(index, el) {
+    const btnName = $(el).siblings().text().trim();
+    console.log(btnName);
+    $(el).on('click', function() {
+        console.log(btnName)
+        let i = selectedCountries.indexOf(btnName);
+        selectedCountries.splice(i, 1);
+        console.log(selectedCountries)
+        // renderBtn();
+        localStorage.setItem('selected-countries', JSON.stringify(selectedCountries)); //update local storage
+
+    })
+    // renderBtn();
+})
+
+
+
+// function changeSelectedCountry(newVal) {
+//     selectedCountry = newVal;
+// }
