@@ -7,7 +7,7 @@ function getRandomNews() {
     fetch(queryUrl).then(function (response) {
         return response.json();
     }).then(function(data) {
-        console.log(data); // check data in console
+        // console.log(data); // check data in console
         // console.log('title: ' + data.articles[0].title )
         // console.log('date: ' + dayjs(data.articles[0].publishedAd).format('DD/HH/YYYY'))
         // console.log('read more url: ' + data.articles[0].url)
