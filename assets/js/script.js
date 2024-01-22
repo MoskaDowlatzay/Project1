@@ -62,15 +62,15 @@ function getRecipeByCountries() {
             // console.log('jpeg: ' + data.meals[0].strMealThumb)
             mealName = [];
             mealImg = [];
-            mealUrl = [];
-            mealInst = [];
+
             for (let i = 0; i<4; i++) {
                 mealName.push(data.meals[i].strMeal);
                 mealImg.push(data.meals[i].strMealThumb);
-                console.log(data.meals[i].strMealThumb)
             }
             console.log(mealName, mealImg);
             // need another fetch to get and console all recipes (4pcs) related to country
+            mealUrl = [];
+            mealInst = [];
             for (let i=0; i<mealName.length; i++) {
                 let mealNameOne = mealName[i];
                 const queryUrlMealDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameOne}`;
@@ -90,19 +90,18 @@ function getRecipeByCountries() {
             console.log(Object.keys(mealInst));
             console.log(Object.values(mealUrl));
             console.log(mealInst);
-            for (const key in mealUrl) {
-                if (mealUrl.hasOwnProperty(key)) {
-                    const value = mealUrl[key];
-                    console.log(value);
-                }
 
-            }
-
+            let count=0;
             for (let i=0; i<mealName.length; i++) {
+                count++;
+                console.log(count);
+                console.log(mealUrl);
+                console.log(mealInst[i]);
+                console.log(mealUrl[i]);    
                 const createRecipeEl = 
                 `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
                 <div class="card">
-                <img src="`+ mealUrl[i] +`" class="card-img-top" alt="..."/>
+                <img src="`+ mealImg[i] +`" class="card-img-top" alt="..."/>
                 <div class="card-body">
                 <h5 class="card-title">`+ mealName[i] +`</h5>
                 <p class="card-text">
