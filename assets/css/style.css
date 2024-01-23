@@ -33,6 +33,10 @@
       .column a:hover {
         background-color: #ddd;
       }
+
+      .country-btn:hover {
+        background-color: rgb(58,110,52, 0.5);
+      }
       
       /* Clear floats after the columns */
       .row:after {
