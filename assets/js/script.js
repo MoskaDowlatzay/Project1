@@ -33,12 +33,13 @@ function getRandomNews() {
             const createNewsEl = 
             `<div class="col-sm-6">
             <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">` + newsTitle[i] +  `</h5>
-                <img src="`+ newsImg[i] +`" class="card-img-top" alt="...">
+
+              <img src="`+ newsImg[i] +`" class="card-img-top" style="width: 100%; height: 100%; object-fit: cover; overflow: hidden;" alt="...">
+                <h5 class="card-title mt-4">` + newsTitle[i] +  `</h5>
+                
                 <p class="card-text">Published: ` + newsContent[i] + `</p>
-                <a href="`+ newsUrl[i] + `" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52);">Read the articlee</a>
-              </div>
+                <a href="`+ newsUrl[i] + `" class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52);">Read the article</a>
+
             </div>
           </div>`
             // `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
@@ -80,57 +81,57 @@ function getRecipeByCountries() {
             mealName = [];
             mealImg = [];
 
-            for (let i = 0; i<4; i++) {
-                mealName.push(data.meals[i].strMeal);
-                mealImg.push(data.meals[i].strMealThumb);
-            }
-            console.log(mealName, mealImg);
-            // need another fetch to get and console all recipes (4pcs) related to country
-            mealUrl = [];
-            mealInst = [];
-            for (let i=0; i<mealName.length; i++) {
-                let mealNameOne = mealName[i];
-                const queryUrlMealDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameOne}`;
-                fetch(queryUrlMealDetails).then(function (response) {
-                    return response.json();
-                }).then(function(data){
-                    // console.log(data.meals[0].strSource)
-                    mealUrl.push(data.meals[0].strSource);
-                    mealInst.push(data.meals[0].strInstructions);
+            // for (let i = 0; i<4; i++) {
+            //     mealName.push(data.meals[i].strMeal);
+            //     mealImg.push(data.meals[i].strMealThumb);
+            // }
+            // console.log(mealName, mealImg);
+            // // need another fetch to get and console all recipes (4pcs) related to country
+            // mealUrl = [];
+            // mealInst = [];
+            // for (let i=0; i<mealName.length; i++) {
+            //     let mealNameOne = mealName[i];
+            //     const queryUrlMealDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameOne}`;
+            //     fetch(queryUrlMealDetails).then(function (response) {
+            //         return response.json();
+            //     }).then(function(data){
+            //         // console.log(data.meals[0].strSource)
+            //         mealUrl.push(data.meals[0].strSource);
+            //         mealInst.push(data.meals[0].strInstructions);
 
-                })
-            }
-            console.log(typeof(mealUrl));
-            console.log(typeof(mealInst));
-            const instValue = Object.values(mealInst);
+            //     })
+            // }
+            // console.log(typeof(mealUrl));
+            // console.log(typeof(mealInst));
+            // const instValue = Object.values(mealInst);
 
-            console.log(Object.keys(mealInst));
-            console.log(Object.values(mealUrl));
-            console.log(mealInst);
+            // console.log(Object.keys(mealInst));
+            // console.log(Object.values(mealUrl));
+            // console.log(mealInst);
 
-            let count=0;
-            for (let i=0; i<mealName.length; i++) {
-                count++;
-                console.log(count);
-                console.log(mealUrl);
-                console.log(mealInst[i]);
-                console.log(mealUrl[i]);    
-                const createRecipeEl = 
-                `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
-                <div class="card">
-                <img src="`+ mealImg[i] +`" class="card-img-top" alt="..."/>
-                <div class="card-body">
-                <h5 class="card-title">`+ mealName[i] +`</h5>
-                <p class="card-text">
-                    `+mealInst[i]+`
-                </p>
-                <a href=`+mealUrl[i]+` class="btn btn" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
-                </div>
-            </div>
-            </div>`
-                $('.showsNear').append(createRecipeEl);
-                // console.log(createRecipeEl);
-            }
+            // let count=0;
+            // for (let i=0; i<mealName.length; i++) {
+            //     count++;
+            //     console.log(count);
+            //     console.log(mealUrl);
+            //     console.log(mealInst[i]);
+            //     console.log(mealUrl[i]);    
+            //     const createRecipeEl = 
+            //     `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+            //     <div class="card">
+            //     <img src="`+ mealImg[i] +`" class="card-img-top" alt="..."/>
+            //     <div class="card-body">
+            //     <h5 class="card-title">`+ mealName[i] +`</h5>
+            //     <p class="card-text">
+            //         `+mealInst[i]+`
+            //     </p>
+            //     <a href=`+mealUrl[i]+` class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
+            //     </div>
+            // </div>
+            // </div>`
+            //     $('.showsNear').append(createRecipeEl);
+            //     console.log(createRecipeEl);
+            // }
 
         })
     }    
@@ -142,8 +143,8 @@ init();
 function renderBtn() {
     $('.selected-countries-container').empty();
     for (let i = 0; i < selectedCountries.length; i++) {
-        const creatBtn = `<div class="button-container mx-3 border rounded">
-        <button class="country-btn btn" type="submit">`+ selectedCountries[i] +`</button><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        const creatBtn = `<div class="button-container mx-3 ">
+        <button class="country-btn btn border rounded" type="submit">`+ selectedCountries[i] +`</button><button type="button" class="close border-0 bg-body" aria-label="Close"><span class="h4 text-danger" aria-hidden="true">&times;</span></button>
       </div> `
       $('.selected-countries-container').append(creatBtn);
     //   console.log(creatBtn);
