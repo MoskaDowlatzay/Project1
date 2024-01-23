@@ -183,9 +183,11 @@ $('.close').each(function(index, el) {
         console.log(selectedCountries)
         toStoreCountries(); //update local storage
         renderBtn();
+        location.reload();
         // init();
     })
     // renderBtn();
+    
 })
 
 // select countrybtn list recipe
@@ -198,6 +200,7 @@ $('.country-btn').each(function(index, el){
         changeSelectedCountry(needRecipe);
         // console.log(selectedCountry);
         getRecipeByCountries(needRecipe);
+        location.reload();
     })
 })
 
