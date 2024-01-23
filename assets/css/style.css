@@ -5,6 +5,13 @@
 
     }
 
+    .select-country-menu:hover {
+      text-decoration: underline;
+    }
+    .dropdown-item:hover {
+      color: rgb(58,110,52)
+    }
+
     
     .column {
         float: left;
