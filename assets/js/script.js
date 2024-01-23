@@ -1,5 +1,5 @@
 // const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
-const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be';
+// const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be';
 
 // const mealApiKey = '1'
 
@@ -82,7 +82,6 @@ function getRecipeByCountries() {
             // console.log('jpeg: ' + data.meals[0].strMealThumb)
             mealName = [];
             mealImg = [];
-
             for (let i = 0; i<4; i++) {
                 mealName.push(data.meals[i].strMeal);
                 mealImg.push(data.meals[i].strMealThumb);
@@ -105,17 +104,15 @@ function getRecipeByCountries() {
             const instValue = Object.values(mealInst);
             const createRecipeEl = 
             `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
-            <div class="card">
-            
+            <div class="card">        
             <div class="card-body">
-       
             <p class="card-text">
                 `+data.meals[0].strInstructions+`
             </p>
             <a href=`+data.meals[0].strSource+` class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
             </div>
-        </div>
-        </div>`
+            </div>
+            </div>`
             $('.showsNear').append(createRecipeEl);
             console.log(createRecipeEl);
 
@@ -164,10 +161,19 @@ function renderBtn() {
         <button class="country-btn btn border rounded" type="submit">`+ selectedCountries[i] +`</button><button type="button" class="close border-0 bg-body" aria-label="Close"><span class="h4 text-danger" aria-hidden="true">&times;</span></button>
       </div> `
       $('.selected-countries-container').append(creatBtn);
+      $('.country-btn').on('click', function(e){
+        const needRecipe = $(e.target).text().trim();
+        $('.showsNear').empty();
+        // location.reload();
+        console.log('country i need recipe: ' + needRecipe)
+        changeSelectedCountry(needRecipe);
+        // console.log(selectedCountry);
+        getRecipeByCountries(needRecipe);
+        
+    })    
     //   console.log(creatBtn);
     }
 }
-
 function init () {
     console.log('init')
     const storedCountries = JSON.parse(localStorage.getItem('selected-countries')) || [];  
@@ -192,6 +198,7 @@ $('.dropdown-item').each(function(index, element) {
         toStoreCountries(); //store data in loca storage
         console.log(selectedCountries);
         renderBtn(); //call render btn to display buttons
+        getRecipeByCountries(selectedCountry);
         // changeSelectedCountry(countryName);
     });
 });
@@ -209,7 +216,7 @@ $('.close').each(function(index, el) {
         console.log(selectedCountries)
         toStoreCountries(); //update local storage
         renderBtn();
-        // location.reload();
+        location.reload();
         // init();
     })
     // renderBtn();
@@ -217,20 +224,20 @@ $('.close').each(function(index, el) {
 })
 
 // select countrybtn list recipe
-$('.country-btn').each(function(index, el){
-    console.log('clicked country')
-    const needRecipe = $(el).text().trim();
-    $(el).on('click', function(){
+// $('.country-btn').each(function(index, el){
+//     console.log('clicked country')
+//     const needRecipe = $(el).text().trim();
+//     // $(el).on('click', function(){
       
-        $('.showsNear').empty();
-        // location.reload();
-        console.log('country i need recipe: ' + needRecipe)
-        changeSelectedCountry(needRecipe);
-        // console.log(selectedCountry);
-        getRecipeByCountries(needRecipe);
+//     //     $('.showsNear').empty();
+//     //     // location.reload();
+//     //     console.log('country i need recipe: ' + needRecipe)
+//     //     changeSelectedCountry(needRecipe);
+//     //     // console.log(selectedCountry);
+//     //     getRecipeByCountries(needRecipe);
         
-    })
-})
+//     // })
+// })
 
 function changeSelectedCountry(newVal) {
     selectedCountry = newVal;
