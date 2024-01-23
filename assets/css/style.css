@@ -12,7 +12,6 @@
       color: rgb(58,110,52)
     }
 
-    
     .column {
         float: left;
         width: 50%;
@@ -44,7 +43,16 @@
         display: table;
         clear: both;
       }
-      
+      /* quick recipe cards */
+      .easy-recipe-img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .img-container {
+        width: 500px;
+        height: 300px;
+      }
 /* cards */
 .content {
     padding: 50px;
