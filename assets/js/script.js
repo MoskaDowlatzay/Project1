@@ -1,9 +1,12 @@
-const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
+// const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
+const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be';
+
 // const mealApiKey = '1'
 
 // fetch to get random recipe related news from news API / it works, displays 4 news /html will change, createEl should be updated
 function getRandomNews() {
-    const queryUrl = `https://newsapi.org/v2/everything?q=recipe&apiKey=${newsApiKey}`
+    // const queryUrl = `https://newsapi.org/v2/everything?q=recipe&apiKey=${newsApiKey}`
+    const queryUrl = `https://gnews.io/api/v4/search?q=recipe&apikey=${newNewsApiKey}`
     fetch(queryUrl).then(function (response) {
         return response.json();
     }).then(function(data) {
@@ -12,14 +15,18 @@ function getRandomNews() {
         // console.log('date: ' + dayjs(data.articles[0].publishedAd).format('DD/HH/YYYY'))
         // console.log('read more url: ' + data.articles[0].url)
         let newsTitle = [];
-        let newsDate = [];
+        let newsImg=[];
+        let newsContent = [];
         let newsUrl = [];
         let numberOfNews = 4;
         // generate 4 random news and store the data in an array
         for (let i=0; i< numberOfNews; i++) {
             newsTitle.push(data.articles[i].title);
-            newsDate.push(dayjs(data.articles[i].publishedAd).format('DD/HH/YYYY'));
+            // newsDate.push(dayjs(data.articles[i].publishedAd).format('DD/HH/YYYY'));
+
             newsUrl.push(data.articles[i].url);
+            newsContent.push(data.articles[i].description);
+            newsImg.push(data.articles[i].image)
         }
         // create news blocks pull data from arrays // card html element might change! 
         for (let i=0; i<newsTitle.length; i++) {
@@ -28,7 +35,8 @@ function getRandomNews() {
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">` + newsTitle[i] +  `</h5>
-                <p class="card-text">Published: ` + newsDate[i] + `</p>
+                <img src="`+ newsImg[i] +`" class="card-img-top" alt="...">
+                <p class="card-text">Published: ` + newsContent[i] + `</p>
                 <a href="`+ newsUrl[i] + `" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52);">Read the articlee</a>
               </div>
             </div>
