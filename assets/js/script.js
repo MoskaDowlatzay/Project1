@@ -75,6 +75,7 @@ let mealInst = [];
 let storeObj = [];
 let selectedCountry = [];
 function getRecipeByCountries() {
+    $(".showsNear").empty();
   if (!(selectedCountry === null)) {
     // at first we need to get countries it give only food name and img
     const queryUrlMeal = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${selectedCountry}`;
@@ -83,15 +84,11 @@ function getRecipeByCountries() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
-    
+        console.log(data); 
     //   let mealObj = {
-   
     //     }
-
     //     for (let i = 0; i < 4; i++) {
     //         let key = "meal" + i;
-
     //         mealObj[key]={
     //             title: '',
     //             img: '',
@@ -105,7 +102,10 @@ function getRecipeByCountries() {
     //     }
     //     console.log(mealObj);
     //   });
+    let count = 0;
     for (let i = 0; i < 4; i++) {
+        count++
+        
       let mealNameOne = data.meals[i].strMeal;
       console.log(mealNameOne)
       const queryUrlMealDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameOne}`;
@@ -114,6 +114,7 @@ function getRecipeByCountries() {
           return response.json();
         })
         .then(function (carrot) {
+            // $(".showsNear").empty();
           const createRecipeEl =
             `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
             <div class="card">  
@@ -132,6 +133,7 @@ function getRecipeByCountries() {
             </div>
             </div>
             </div>`;
+            console.log(count);
           $(".showsNear").append(createRecipeEl);
         });
     }
