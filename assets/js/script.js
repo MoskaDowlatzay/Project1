@@ -145,37 +145,62 @@ function getRecipeByCountries() {
 let selectedCountries = [];
 init();
 function renderBtn() {
-  $(".selected-countries-container").empty();
-  for (let i = 0; i < selectedCountries.length; i++) {
-    const creatBtn =
-      `<div class="button-container mx-3 ">
-        <button class="country-btn btn border rounded" type="submit">` +
-      selectedCountries[i] +
-      `</button><button type="button" class="closing-btn close border-0 bg-body" aria-label="Close"><span class="h4 text-danger" aria-hidden="true">&times;</span></button>
-      </div> `;
-    $(".selected-countries-container").append(creatBtn);
-    $(".country-btn").on("click", function (e) {
-      const needRecipe = $(e.target).text().trim();
-      $(".showsNear").empty();
-      // location.reload();
-    //   console.log("country i need recipe: " + needRecipe);
-      changeSelectedCountry(needRecipe);
-      // console.log(selectedCountry);
-      getRecipeByCountries(needRecipe);
-    });
-    $(".closing-btn").on("click", function (e) {
-      const btnName = $(e.target).text().trim();
-    //   console.log(btnName);
-      let i = selectedCountries.indexOf(btnName);
-      selectedCountries.splice(i, 1);
-    //   console.log(selectedCountries);
-      toStoreCountries(); //update local storage
-      renderBtn();
-      // location.reload();
-    });
-    //   console.log(creatBtn);
-  }
+    $(".selected-countries-container").empty();   
+    for (let i = 0; i <selectedCountries.length; i++) {
+        const creatBtn =
+            `<div class="button-container mx-3 ">
+                <button class="country-btn btn border rounded" type="submit" data-index="`+ i +`">` +
+            selectedCountries[i] +
+            `</button><button type="button" class="closing-btn close border-0 bg-body" aria-label="Close"><span class="h4 text-danger" aria-hidden="true">&times;</span></button>
+            </div> `;
+            
+        $(".selected-countries-container").append(creatBtn);
+
+        // $(".country-btn").on("click", function (e) {
+        // const needRecipe = $(e.target).text().trim();
+        // $(".showsNear").empty();
+        // // location.reload();
+        // //   console.log("country i need recipe: " + needRecipe);
+        // changeSelectedCountry(needRecipe);
+        // // console.log(selectedCountry);
+        // getRecipeByCountries(needRecipe);
+        // });
+
+        // $(".closing-btn").on("click", function (e) {
+        // const btnName = $(e.target).text().trim();
+        // //   console.log(btnName);
+        // let i = selectedCountries.indexOf(btnName);
+        // selectedCountries.splice(i, 1);
+        // //   console.log(selectedCountries);
+        // toStoreCountries(); //update local storage
+        // renderBtn();
+        // // location.reload();
+        // });
+        //   console.log(creatBtn);
+    }
 }
+
+// $(".country-btn").on("click", function (e) {
+//     const needRecipe = $(e.target).text().trim();
+//     $(".showsNear").empty();
+//     // location.reload();
+//     //   console.log("country i need recipe: " + needRecipe);
+//     changeSelectedCountry(needRecipe);
+//     // console.log(selectedCountry);
+//     getRecipeByCountries(needRecipe);
+//     });
+
+    $(".selected-countries-container").on('click', function(e) {
+        const targetEl = e.target;
+        console.log(targetEl)
+        let index = targetEl.getAttribute('data-index');
+
+        console.log(selectedCountries[index]);
+        changeSelectedCountry(selectedCountries[index]);
+        getRecipeByCountries();
+    })
+
+
 function init() {
 //   console.log("init");
   const storedCountries =
