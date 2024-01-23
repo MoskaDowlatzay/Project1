@@ -24,15 +24,24 @@ function getRandomNews() {
         // create news blocks pull data from arrays // card html element might change! 
         for (let i=0; i<newsTitle.length; i++) {
             const createNewsEl = 
-            `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+            `<div class="col-sm-6">
             <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">` + newsTitle[i] +  `</h5>
-              <p class="card-text">Published: ` + newsDate[i] + ` </p>
-              <a href="`+ newsUrl[i] + `" class="btn" style="color: white; background-color: rgb(58,110,52)">Read the article</a>
-            </div>`
-            $('.articleCards').append(createNewsEl);
+              <div class="card-body">
+                <h5 class="card-title">` + newsTitle[i] +  `</h5>
+                <p class="card-text">Published: ` + newsDate[i] + `</p>
+                <a href="`+ newsUrl[i] + `" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52);">Read the articlee</a>
+              </div>
+            </div>
+          </div>`
+            // `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+            // <div class="card">
+            // <img src="..." class="card-img-top" alt="...">
+            // <div class="card-body">
+            //   <h5 class="card-title">` + newsTitle[i] +  `</h5>
+            //   <p class="card-text">Published: ` + newsDate[i] + ` </p>
+            //   <a href="`+ newsUrl[i] + `" class="btn" style="color: white; background-color: rgb(58,110,52)">Read the article</a>
+            // </div>`
+            $('.articles').append(createNewsEl);
             // console.log(createNewsEl);
         }
 
@@ -118,8 +127,10 @@ function getRecipeByCountries() {
         })
     }    
 };
-// getRecipeByCountries();
 
+// getRecipeByCountries();
+let selectedCountries = [];
+init();
 function renderBtn() {
     $('.selected-countries-container').empty();
     for (let i = 0; i < selectedCountries.length; i++) {
@@ -130,10 +141,18 @@ function renderBtn() {
     //   console.log(creatBtn);
     }
 }
-const storedCountries = JSON.parse(localStorage.getItem('selected-countries')) || [];  
 
+function init () {
+    console.log('init')
+    const storedCountries = JSON.parse(localStorage.getItem('selected-countries')) || [];  
+    if (storedCountries !== null) {
+        selectedCountries = storedCountries;
+        console.log(selectedCountries);
+    }
+    renderBtn();
+}
 // Iterate through each dropdown item and perform an action
-let selectedCountries = storedCountries; //set storedCountries to selectedCountries to save display data after reload the page
+// let selectedCountries = storedCountries; //set storedCountries to selectedCountries to save display data after reload the page
 $('.dropdown-item').each(function(index, element) {
     const countryName = $(element).text().trim();
     // console.log('Country Name:', countryName);
@@ -150,21 +169,21 @@ $('.dropdown-item').each(function(index, element) {
         // changeSelectedCountry(countryName);
     });
 });
-renderBtn();
+// renderBtn();
 
 // when closing tag on button is clicked delete countryname from local storage and from array / figure out how to delete from dislplay without reloading the page
 $('.close').each(function(index, el) {
     const btnName = $(el).siblings().text().trim();
     console.log(btnName);
-    $(el).on('click', function() {
+    $(el).on('click', function(e) {
+        e.preventDefault();
         console.log(btnName)
         let i = selectedCountries.indexOf(btnName);
         selectedCountries.splice(i, 1);
         console.log(selectedCountries)
-
         toStoreCountries(); //update local storage
         renderBtn();
-
+        // init();
     })
     // renderBtn();
 })
