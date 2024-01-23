@@ -22,80 +22,64 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    
     <!--NavBar-->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">World Foods</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Recipes by Country
-            </a>
-            <ul class="dropdown-menu">
-              <div class="row" style='width: 500px;'>
-                    <div class="column">
-              <li><a id='american' class="dropdown-item" href="#">American</a></li>
-              <li><a id='british' class="dropdown-item" href="#">British</a></li>
-              <li><a id='canadian' class="dropdown-item" href="#">Canadian</a></li>
-              <li><a id='croatian' class="dropdown-item" href="#">Croatian</a></li>
-              <li><a id='dutch' class="dropdown-item" href="#">Dutch</a></li>
-              <li><a id='egyptian' class="dropdown-item" href="#">Egyptian</a></li>
-              </div>
-                <div class="column">
-              <li><a id='filipino' class="dropdown-item" href="#">Filipino</a></li>
-              <li><a id='french' class="dropdown-item" href="#">French</a></li>
-              <li><a id='greek' class="dropdown-item" href="#">Greek</a></li>
-              <li><a id='indian' class="dropdown-item" href="#">Indian</a></li>
-              <li><a id='irish' class="dropdown-item" href="#">Irish</a></li>
-              <li><a id='italian' class="dropdown-item" href="#">Italian</a></li>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">World Foods</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="select-country-menu nav-link dropdown-toggle ms-3 fw-bolder" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(58,110,52); ">
+                Recipes by Country
+              </a>
+              <ul class="dropdown-menu border-0" style="width: 30vw; height: 100%;">
+                <div class="row border bg-info" style="height: 100%;">
+                  <div class="column" style="height: 750px;">
+                    <li><a id='american' class="dropdown-item" href="#">American</a></li>
+                    <li><a id='british' class="dropdown-item" href="#">British</a></li>
+                    <li><a id='canadian' class="dropdown-item" href="#">Canadian</a></li>
+                    <li><a id='croatian' class="dropdown-item" href="#">Croatian</a></li>
+                    <li><a id='dutch' class="dropdown-item" href="#">Dutch</a></li>
+                    <li><a id='egyptian' class="dropdown-item" href="#">Egyptian</a></li>
+                    <li><a id='filipino' class="dropdown-item" href="#">Filipino</a></li>
+                    <li><a id='french' class="dropdown-item" href="#">French</a></li>
+                    <li><a id='greek' class="dropdown-item" href="#">Greek</a></li>
+                    <li><a id='indian' class="dropdown-item" href="#">Indian</a></li>
+                    <li><a id='irish' class="dropdown-item" href="#">Irish</a></li>
+                    <li><a id='italian' class="dropdown-item" href="#">Italian</a></li>
+                    <li><a id='jamaican' class="dropdown-item" href="#">Jamaican</a></li>
+                  </div>
+                  <div class="column" style="height: 750px;">
+                    <li><a id='japanese' class="dropdown-item" href="#">Japanese</a></li>
+                    <li><a id='kenyan' class="dropdown-item" href="#">Kenyan</a></li>
+                    <li><a id='malaysian' class="dropdown-item" href="#">Malaysian</a></li>
+                    <li><a id='mexican' class="dropdown-item" href="#">Mexican</a></li>
+                    <li><a id='moroccan' class="dropdown-item" href="#">Moroccan</a></li>
+                    <li><a id='polish' class="dropdown-item" href="#">Polish</a></li>
+                    <li><a id='portuguese' class="dropdown-item" href="#">Portuguese</a></li>
+                    <li><a id='russian' class="dropdown-item" href="#">Russian</a></li>
+                    <li><a id='spanish' class="dropdown-item" href="#">Spanish</a></li>
+                    <li><a id='thai' class="dropdown-item" href="#">Thai</a></li>
+                    <li><a id='tunisian' class="dropdown-item" href="#">Tunisian</a></li>
+                    <li><a id='turkish' class="dropdown-item" href="#">Turkish</a></li>
+                    <li><a id='vietnamese' class="dropdown-item" href="#">Vietnamese</a></li>
+                  </div>
                 </div>
-                    <div class="column">
-              <li><a id='jamaican' class="dropdown-item" href="#">Jamaican</a></li>
-              <li><a id='japanese' class="dropdown-item" href="#">Japanese</a></li>
-              <li><a id='kenyan' class="dropdown-item" href="#">Kenyan</a></li>
-              <li><a id='malaysian' class="dropdown-item" href="#">Malaysian</a></li>
-                    </div>
-
-                    <div class="column">
-              <li><a id='mexican' class="dropdown-item" href="#">Mexican</a></li>
-              <li><a id='moroccan' class="dropdown-item" href="#">Moroccan</a></li>
-              <li><a id='polish' class="dropdown-item" href="#">Polish</a></li>
-              <li><a id='portuguese' class="dropdown-item" href="#">Portuguese</a></li>
-              </div>
-
-              <div class="column">
-              <li><a id='russian' class="dropdown-item" href="#">Russian</a></li>
-              <li><a id='spanish' class="dropdown-item" href="#">Spanish</a></li>
-              <li><a id='thai' class="dropdown-item" href="#">Thai</a></li>
-              <li><a id='tunisian' class="dropdown-item" href="#">Tunisian</a></li>
-                </div>
-
-                    <div class="column">
-              <li><a id='turkish' class="dropdown-item" href="#">Turkish</a></li>
-              <li><a id='vietnamese' class="dropdown-item" href="#">Vietnamese</a></li>
-                    </div>
-                    </div>
-              
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+              </ul>
+            </li>
+          </ul>
+          <!-- <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> -->
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+
    <!-- Hero section/ jumbotron -->
    <div class="p-5 mb-4 rounded-3 hero">
     <div class="container-fluid py-5 jumboCopy">
