@@ -56,7 +56,7 @@ function getRandomNews() {
 
     })
 }
-getRandomNews();
+// getRandomNews();
 
 // fetch to get random recipe to check data / it need to be selected by country
 let mealName = [];
@@ -67,9 +67,11 @@ let mealInst = [];
 let selectedCountry = [];
 function getRecipeByCountries() {
     if (!(selectedCountry === null)) {
+        console.log('wtf')
         // at first we need to get countries it give only food name and img
         const queryUrlMeal = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${selectedCountry}`
         fetch(queryUrlMeal).then(function (response) {
+            console.log('wtf2')
             return response.json();
         }).then(function(data) {
             console.log(data); // check data in console
@@ -89,7 +91,7 @@ function getRecipeByCountries() {
             // need another fetch to get and console all recipes (4pcs) related to country
             mealUrl = [];
             mealInst = [];
-            for (let i=0; i<mealName.length; i++) {
+            for (let i=0; i<4; i++) {
                 let mealNameOne = mealName[i];
                 const queryUrlMealDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameOne}`;
                 fetch(queryUrlMealDetails).then(function (response) {
@@ -98,40 +100,55 @@ function getRecipeByCountries() {
                     // console.log(data.meals[0].strSource)
                     mealUrl.push(data.meals[0].strSource);
                     mealInst.push(data.meals[0].strInstructions);
+                    console.log(typeof(mealUrl));
+            console.log(typeof(mealInst));
+            const instValue = Object.values(mealInst);
+            const createRecipeEl = 
+            `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+            <div class="card">
+            
+            <div class="card-body">
+       
+            <p class="card-text">
+                `+data.meals[0].strInstructions+`
+            </p>
+            <a href=`+data.meals[0].strSource+` class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
+            </div>
+        </div>
+        </div>`
+            $('.showsNear').append(createRecipeEl);
+            console.log(createRecipeEl);
+
+            // console.log(Object.keys(mealInst));
+            // console.log(Object.values(mealUrl));
+            console.log(mealInst);
+
+            // let count=0;
 
                 })
             }
-            console.log(typeof(mealUrl));
-            console.log(typeof(mealInst));
-            const instValue = Object.values(mealInst);
-
-            console.log(Object.keys(mealInst));
-            console.log(Object.values(mealUrl));
-            console.log(mealInst);
-
-            let count=0;
-            for (let i=0; i<mealName.length; i++) {
-                count++;
-                console.log(count);
-                console.log(mealUrl);
-                console.log(mealInst[i]);
-                console.log(mealUrl[i]);    
-                const createRecipeEl = 
-                `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
-                <div class="card">
-                <img src="`+ mealImg[i] +`" class="card-img-top" alt="..."/>
-                <div class="card-body">
-                <h5 class="card-title">`+ mealName[i] +`</h5>
-                <p class="card-text">
-                    `+mealInst[i]+`
-                </p>
-                <a href=`+mealUrl[i]+` class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
-                </div>
-            </div>
-            </div>`
-                $('.showsNear').append(createRecipeEl);
-                console.log(createRecipeEl);
-            }
+            // for (let i=0; i<4; i++) {
+         
+            //     // console.log(count);
+            //     console.log(mealUrl);
+            //     console.log(mealInst[i]);
+            //     console.log(mealUrl[i]);    
+            //     const createRecipeEl = 
+            //     `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+            //     <div class="card">
+            //     <img src="`+ mealImg[i] +`" class="card-img-top" alt="..."/>
+            //     <div class="card-body">
+            //     <h5 class="card-title">`+ mealName[i] +`</h5>
+            //     <p class="card-text">
+            //         `+mealInst[i]+`
+            //     </p>
+            //     <a href=`+mealUrl[i]+` class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
+            //     </div>
+            // </div>
+            // </div>`
+            //     $('.showsNear').append(createRecipeEl);
+            //     console.log(createRecipeEl);
+            // }
 
         })
     }    
@@ -192,7 +209,7 @@ $('.close').each(function(index, el) {
         console.log(selectedCountries)
         toStoreCountries(); //update local storage
         renderBtn();
-        location.reload();
+        // location.reload();
         // init();
     })
     // renderBtn();
@@ -204,12 +221,14 @@ $('.country-btn').each(function(index, el){
     console.log('clicked country')
     const needRecipe = $(el).text().trim();
     $(el).on('click', function(){
+      
         $('.showsNear').empty();
+        // location.reload();
         console.log('country i need recipe: ' + needRecipe)
         changeSelectedCountry(needRecipe);
         // console.log(selectedCountry);
         getRecipeByCountries(needRecipe);
-        location.reload();
+        
     })
 })
 
