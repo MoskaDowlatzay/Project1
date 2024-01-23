@@ -51,13 +51,12 @@
   footer {
     text-align: center;
     padding: 3px;
-    background-color: white;
+    background-color: rgb(248,249,250);
     color: rgb(58,110,52);
   }
   .fa {
     padding: 20px;
     font-size: 30px;
-    width: 30px;
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
@@ -66,14 +65,14 @@
     opacity: 0.7;
   }
 .fa-facebook {
-  background: #3B5998;
+  background: rgb(58,110,52);
   color: white;
 }
 .fa-linkedin {
-  background: #007bb5;
+  background: rgb(58,110,52);
   color: white;
 }
 .fa-twitter {
-  background: #55ACEE;
+  background: rgb(58,110,52);
   color: white;
 }

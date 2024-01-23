@@ -1,9 +1,12 @@
-const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
+// const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
+const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be';
+
 // const mealApiKey = '1'
 
 // fetch to get random recipe related news from news API / it works, displays 4 news /html will change, createEl should be updated
 function getRandomNews() {
-    const queryUrl = `https://newsapi.org/v2/everything?q=recipe&apiKey=${newsApiKey}`
+    // const queryUrl = `https://newsapi.org/v2/everything?q=recipe&apiKey=${newsApiKey}`
+    const queryUrl = `https://gnews.io/api/v4/search?q=recipe&apikey=${newNewsApiKey}`
     fetch(queryUrl).then(function (response) {
         return response.json();
     }).then(function(data) {
@@ -12,27 +15,42 @@ function getRandomNews() {
         // console.log('date: ' + dayjs(data.articles[0].publishedAd).format('DD/HH/YYYY'))
         // console.log('read more url: ' + data.articles[0].url)
         let newsTitle = [];
-        let newsDate = [];
+        let newsImg=[];
+        let newsContent = [];
         let newsUrl = [];
         let numberOfNews = 4;
         // generate 4 random news and store the data in an array
         for (let i=0; i< numberOfNews; i++) {
             newsTitle.push(data.articles[i].title);
-            newsDate.push(dayjs(data.articles[i].publishedAd).format('DD/HH/YYYY'));
+            // newsDate.push(dayjs(data.articles[i].publishedAd).format('DD/HH/YYYY'));
+
             newsUrl.push(data.articles[i].url);
+            newsContent.push(data.articles[i].description);
+            newsImg.push(data.articles[i].image)
         }
         // create news blocks pull data from arrays // card html element might change! 
         for (let i=0; i<newsTitle.length; i++) {
             const createNewsEl = 
-            `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+            `<div class="col-sm-6">
             <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">` + newsTitle[i] +  `</h5>
-              <p class="card-text">Published: ` + newsDate[i] + ` </p>
-              <a href="`+ newsUrl[i] + `" class="btn" style="color: white; background-color: rgb(58,110,52)">Read the article</a>
-            </div>`
-            $('.articleCards').append(createNewsEl);
+
+              <img src="`+ newsImg[i] +`" class="card-img-top" style="width: 100%; height: 100%; object-fit: cover; overflow: hidden;" alt="...">
+                <h5 class="card-title mt-4">` + newsTitle[i] +  `</h5>
+                
+                <p class="card-text">Published: ` + newsContent[i] + `</p>
+                <a href="`+ newsUrl[i] + `" class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52);">Read the article</a>
+
+            </div>
+          </div>`
+            // `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+            // <div class="card">
+            // <img src="..." class="card-img-top" alt="...">
+            // <div class="card-body">
+            //   <h5 class="card-title">` + newsTitle[i] +  `</h5>
+            //   <p class="card-text">Published: ` + newsDate[i] + ` </p>
+            //   <a href="`+ newsUrl[i] + `" class="btn" style="color: white; background-color: rgb(58,110,52)">Read the article</a>
+            // </div>`
+            $('.articles').append(createNewsEl);
             // console.log(createNewsEl);
         }
 
@@ -62,15 +80,15 @@ function getRecipeByCountries() {
             // console.log('jpeg: ' + data.meals[0].strMealThumb)
             mealName = [];
             mealImg = [];
-            mealUrl = [];
-            mealInst = [];
+
             for (let i = 0; i<4; i++) {
                 mealName.push(data.meals[i].strMeal);
                 mealImg.push(data.meals[i].strMealThumb);
-                console.log(data.meals[i].strMealThumb)
             }
             console.log(mealName, mealImg);
             // need another fetch to get and console all recipes (4pcs) related to country
+            mealUrl = [];
+            mealInst = [];
             for (let i=0; i<mealName.length; i++) {
                 let mealNameOne = mealName[i];
                 const queryUrlMealDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameOne}`;
@@ -90,51 +108,60 @@ function getRecipeByCountries() {
             console.log(Object.keys(mealInst));
             console.log(Object.values(mealUrl));
             console.log(mealInst);
-            for (const key in mealUrl) {
-                if (mealUrl.hasOwnProperty(key)) {
-                    const value = mealUrl[key];
-                    console.log(value);
-                }
 
-            }
-
+            let count=0;
             for (let i=0; i<mealName.length; i++) {
+                count++;
+                console.log(count);
+                console.log(mealUrl);
+                console.log(mealInst[i]);
+                console.log(mealUrl[i]);    
                 const createRecipeEl = 
                 `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
                 <div class="card">
-                <img src="`+ mealUrl[i] +`" class="card-img-top" alt="..."/>
+                <img src="`+ mealImg[i] +`" class="card-img-top" alt="..."/>
                 <div class="card-body">
                 <h5 class="card-title">`+ mealName[i] +`</h5>
                 <p class="card-text">
                     `+mealInst[i]+`
                 </p>
-                <a href=`+mealUrl[i]+` class="btn btn" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
+                <a href=`+mealUrl[i]+` class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
                 </div>
             </div>
             </div>`
                 $('.showsNear').append(createRecipeEl);
-                // console.log(createRecipeEl);
+                console.log(createRecipeEl);
             }
 
         })
     }    
 };
-// getRecipeByCountries();
 
+// getRecipeByCountries();
+let selectedCountries = [];
+init();
 function renderBtn() {
     $('.selected-countries-container').empty();
     for (let i = 0; i < selectedCountries.length; i++) {
-        const creatBtn = `<div class="button-container mx-3 border rounded">
-        <button class="country-btn btn" type="submit">`+ selectedCountries[i] +`</button><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        const creatBtn = `<div class="button-container mx-3 ">
+        <button class="country-btn btn border rounded" type="submit">`+ selectedCountries[i] +`</button><button type="button" class="close border-0 bg-body" aria-label="Close"><span class="h4 text-danger" aria-hidden="true">&times;</span></button>
       </div> `
       $('.selected-countries-container').append(creatBtn);
     //   console.log(creatBtn);
     }
 }
-const storedCountries = JSON.parse(localStorage.getItem('selected-countries')) || [];  
 
+function init () {
+    console.log('init')
+    const storedCountries = JSON.parse(localStorage.getItem('selected-countries')) || [];  
+    if (storedCountries !== null) {
+        selectedCountries = storedCountries;
+        console.log(selectedCountries);
+    }
+    renderBtn();
+}
 // Iterate through each dropdown item and perform an action
-let selectedCountries = storedCountries; //set storedCountries to selectedCountries to save display data after reload the page
+// let selectedCountries = storedCountries; //set storedCountries to selectedCountries to save display data after reload the page
 $('.dropdown-item').each(function(index, element) {
     const countryName = $(element).text().trim();
     // console.log('Country Name:', countryName);
@@ -151,23 +178,25 @@ $('.dropdown-item').each(function(index, element) {
         // changeSelectedCountry(countryName);
     });
 });
-renderBtn();
+// renderBtn();
 
 // when closing tag on button is clicked delete countryname from local storage and from array / figure out how to delete from dislplay without reloading the page
 $('.close').each(function(index, el) {
     const btnName = $(el).siblings().text().trim();
     console.log(btnName);
-    $(el).on('click', function() {
+    $(el).on('click', function(e) {
+        e.preventDefault();
         console.log(btnName)
         let i = selectedCountries.indexOf(btnName);
         selectedCountries.splice(i, 1);
         console.log(selectedCountries)
-
         toStoreCountries(); //update local storage
         renderBtn();
-
+        location.reload();
+        // init();
     })
     // renderBtn();
+    
 })
 
 // select countrybtn list recipe
@@ -180,6 +209,7 @@ $('.country-btn').each(function(index, el){
         changeSelectedCountry(needRecipe);
         // console.log(selectedCountry);
         getRecipeByCountries(needRecipe);
+        location.reload();
     })
 })
 
