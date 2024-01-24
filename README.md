@@ -21,7 +21,7 @@
 
 
 ### Links
-the github page of the solutin[]
+the github page of the solution[]
 live link[]
 
 ## Our_process
@@ -29,7 +29,7 @@ live link[]
 
 
 ### Built_with
-Javascript, jQuery, dayjs, Bootstrap, MealDB API, NEWSApi VS code
+Javascript, jQuery, dayjs, Bootstrap, MealDB API, gnews.io, VS code
 
 ## What_We_learned
 
@@ -38,11 +38,11 @@ Javascript, jQuery, dayjs, Bootstrap, MealDB API, NEWSApi VS code
 
 
 ## Authors
+Moska Dowlatzay [https://github.com/MoskaDowlatzay]
+Joanna Head [https://github.com/joannamhead] 
+Szilvia Horvath [https://github.com/hszilvi] [https://www.linkedin.com/in/horvathszilvi/]
 
-
-
-Szilvia Horvath
-GitHub[https://github.com/hszilvi]
-LinkedIn[https://www.linkedin.com/in/horvathszilvi/]
 
 # Sources
+https://www.themealdb.com/
+https://gnews.io/

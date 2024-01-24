@@ -2,3 +2,20 @@
 
  // <h5 class="card-title">`+ mealName[i] +`</h5>
  // <img src="`+ mealImg[i]+`" class="card-img-top" alt="..."/>
+ //   let mealObj = {
+    //     }
+    //     for (let i = 0; i < 4; i++) {
+    //         let key = "meal" + i;
+    //         mealObj[key]={
+    //             title: '',
+    //             img: '',
+    //             inst: '',
+    //             source: ''
+    //         }
+    //         mealObj[key].title = data.meals[i].strMeal
+    //         mealObj[key].img = data.meals[i].strMealThumb
+    //         // console.log(data.meals[i].strMealThumb)
+    //         // return data.meals[i].strMeal, data.meals[i].strMealThumb
+    //     }
+    //     console.log(mealObj);
+    //   });
