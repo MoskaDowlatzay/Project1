@@ -120,7 +120,7 @@ function getRecipeByCountries() {
             </div>
             </div>`;
               // console.log(count);
-              $(".showsNear").append(createRecipeEl);
+              $(".dropdown-recipes").append(createRecipeEl);
             });
         }
       });
@@ -140,38 +140,36 @@ function renderBtn() {
       `">` +
       selectedCountries[i] +
       `</button>
-              <button type="button" class="closing-btn close border-0 bg-body" aria-label="Close" index="` +
+              <button type="button" class="closing-btn close border-0 bg-body" aria-label="Close" data-index2="` +
       i +
-      `" ><span class="h4 text-danger" aria-hidden="true">&times;</span></button>
+      `" >x</button>
             </div> `;
 
     $(".selected-countries-container").append(creatBtn);
 
-    // $(".closing-btn").on("click", function (e) {
-    // const btnName = $(e.target).text().trim();
-    // //   console.log(btnName);
-    // let i = selectedCountries.indexOf(btnName);
-    // selectedCountries.splice(i, 1);
-    // //   console.log(selectedCountries);
-    // toStoreCountries(); //update local storage
-    // renderBtn();
-    // // location.reload();
-    // });
-    //   console.log(creatBtn);
   }
 }
 
 $(".selected-countries-container").on("click", function (e) {
-  const targetEl = e.target;
+  const targetEl = $(e.target);
   console.log(targetEl);
-  // if (targetEl.hasClass("country-btn")) {
+  if (targetEl.hasClass("country-btn")) {
     // console.log(targetEl)
-    let index = targetEl.getAttribute("data-index");
+    let index = targetEl.attr("data-index");
     // let i = targetEl.getAttribute('index');
-    console.log(i);
+    // console.log(i);
     changeSelectedCountry(selectedCountries[index]);
     getRecipeByCountries();
-  // }
+  } else if (targetEl.hasClass("closing-btn")) {
+    let i = targetEl.attr("data-index2");
+    // const btnName = $(e.target).text().trim();
+    // i = selectedCountries.indexOf(btnName);
+    selectedCountries.splice(i, 1);
+    toStoreCountries();
+    renderBtn();
+
+  }
+  
 });
 
 // $(".selected-countries-container").on("click", function () {
@@ -182,14 +180,14 @@ $(".selected-countries-container").on("click", function (e) {
 
 //   console.log(btnName.text());
 //   console.log(targetBtn.children().ed(1));
-  // const targetClosingEl = el.target;
-  // console.log(targetClosingEl)
-  // let closingIndex = btnName.getAttribute("index");
-  // console.log(closingIndex);
-  // let i = selectedCountries.indexOf(btnName);
-  // selectedCountries.splice(i, 1);
-  // toStoreCountries();
-  // renderBtn();
+//   const targetClosingEl = el.target;
+//   console.log(targetClosingEl)
+//   let closingIndex = btnName.getAttribute("index");
+//   console.log(closingIndex);
+//   let i = selectedCountries.indexOf(btnName);
+//   selectedCountries.splice(i, 1);
+//   toStoreCountries();
+//   renderBtn();
 // });
 
 function init() {
