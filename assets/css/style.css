@@ -13,9 +13,9 @@
   color: white !important;
   font-weight: bold;
 }
-
-
-    
+.nav-link:hover {
+  color:greenyellow !important;
+}
 .select-country-menu:hover {
 text-decoration: underline;
 }
@@ -23,7 +23,7 @@ text-decoration: underline;
 color: rgb(58,110,52)
 }
 
-.btn {
+.btn:hover {
   background-color: rgb(58,110,52) !important;
   color: white !important;
 }
@@ -50,7 +50,7 @@ color: rgb(58,110,52)
 }
 
 .column a:hover {
-  background-color: #ddd;
+  background-color: #dddddd;
 }
 
 .country-btn:hover {
@@ -82,7 +82,7 @@ color: rgb(58,110,52)
     font-weight: bold;
     color: rgb(58,110,52) !important;
   }
-  .showsNear {
+  .dropdown-recipes {
     padding: 0px 30px 30px 30px;
   }
   .cardContainer {
