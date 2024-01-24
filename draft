@@ -19,3 +19,4 @@
     //     }
     //     console.log(mealObj);
     //   });
+    <span class="h4 text-danger" aria-hidden="true">&times;</span>
