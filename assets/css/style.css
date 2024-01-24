@@ -4,12 +4,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.navbar {
+  background-color: #DCEBF2 !important; 
+}
     
 .select-country-menu:hover {
 text-decoration: underline;
 }
 .dropdown-item:hover {
 color: rgb(58,110,52)
+}
+
+.btn {
+  background-color: rgb(58,110,52) !important;
+  color: white !important;
+}
+
+.display-5 {
+  color: #1E2E6A;
 }
 
 .column {
@@ -59,6 +72,8 @@ color: rgb(58,110,52)
   }
   .sectionHeading {
     text-align: center;
+    font-weight: bold;
+    color: rgb(58,110,52) !important;
   }
   .showsNear {
     padding: 0px 30px 30px 30px;
@@ -69,8 +84,9 @@ color: rgb(58,110,52)
   /* footer  */
   footer {
     text-align: center;
-    padding: 3px;
-    background-color: rgb(248,249,250);
+    padding: 10px;
+    background-color: #DCEBF2;
+    background-size: 50px;
     color: rgb(58,110,52);
   }
   .fa {
@@ -118,4 +134,5 @@ i {
   max-height: 600px;
   overflow: hidden;
   overflow-y: auto;
+  background-color: white;
 }
