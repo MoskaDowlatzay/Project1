@@ -6,8 +6,15 @@
 }
 
 .navbar {
-  background-color: #DCEBF2 !important; 
+  background-color: #1E2E6A !important; 
 }
+
+.navbar-brand, .nav-link {
+  color: white !important;
+  font-weight: bold;
+}
+
+
     
 .select-country-menu:hover {
 text-decoration: underline;
@@ -85,7 +92,7 @@ color: rgb(58,110,52)
   footer {
     text-align: center;
     padding: 10px;
-    background-color: #DCEBF2;
+    background-color: white;
     background-size: 50px;
     color: rgb(58,110,52);
   }
