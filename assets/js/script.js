@@ -73,7 +73,7 @@ let mealInst = [];
 let storeObj = [];
 let selectedCountry = [];
 function getRecipeByCountries() {
-  $(".showsNear").empty();
+  $(".dropdown-recipes").empty();
   if (!(selectedCountry === null)) {
     // at first we need to get countries it give only food name and img
     const queryUrlMeal = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${selectedCountry}`;
@@ -216,7 +216,7 @@ $(".dropdown-item").each(function (index, element) {
     // changeSelectedCountry(countryName);
   });
 });
-renderBtn();
+// renderBtn();
 
 // when closing tag on button is clicked delete countryname from local storage and from array / figure out how to delete from dislplay without reloading the page
 // $('.close').each(function(index, el) {
