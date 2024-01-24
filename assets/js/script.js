@@ -190,15 +190,17 @@ function renderBtn() {
 //     getRecipeByCountries(needRecipe);
 //     });
 
-    $(".selected-countries-container").on('click', function(e) {
-        const targetEl = e.target;
-        console.log(targetEl)
-        let index = targetEl.getAttribute('data-index');
+$(".selected-countries-container").on('click', function(e) {
+    const targetEl = e.target;
+    console.log(targetEl)
+    let index = targetEl.getAttribute('data-index');
 
-        console.log(selectedCountries[index]);
-        changeSelectedCountry(selectedCountries[index]);
-        getRecipeByCountries();
-    })
+    console.log(selectedCountries[index]);
+    changeSelectedCountry(selectedCountries[index]);
+    getRecipeByCountries();
+});
+
+
 
 
 function init() {
