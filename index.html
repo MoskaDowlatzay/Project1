@@ -32,6 +32,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#recipe-cards">Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#food-news">Food News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#quick-meals">Quick Meals</a>
+            </li>
             <li class="nav-item dropdown">
               <a class="select-country-menu nav-link dropdown-toggle ms-3 fw-bolder" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(58,110,52); ">
                 Recipes by Country
@@ -82,10 +91,10 @@
 
    <!-- Hero section/ jumbotron -->
    <!-- Hero section/ jumbotron -->
-  <div class="p-3 mb-4 hero">
-    <h1 class="display-5 fw-bold mb-5 float-end">Explore foods from around the World</h1>
+  <div class="p-3 mb-5 hero">
     <div class="container-fluid py-5 jumboCopy mt-2">
         <img class="hero-image" src="./assets/images/hero-banner.jpg" width="100%" height="100%"/>
+        <h1 class="display-5 fw-bold mt-5 float-end">Explore foods from around the World</h1>
     </div>
   </div>
 
@@ -103,57 +112,68 @@
     
   </div>
 
-      <!-- Card 1 -->
+  <!-- online quick recipes-->
+  <h2 class="sectionHeading">Quick Meals</h2>
 
-      <div class="articles row">
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52);">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52);">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52);">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-      
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52);">Go somewhere</a>
-            </div>
-          </div>
-        </div>
+  <div class="card-group" id="quick-meals">
+    <div class="card">
+      <div class="img-container"><img src="./assets/images/5 min gnocci recipe.webp" class="card-img-top easy-recipe-img" alt="gnocci">
       </div>
-        
+      <div class="card-body">
+        <h5 class="card-title">5 min recipes</h5>
+        <p class="card-text">Access a wide range of five min recipes.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <a
+        href="https://www.bbcgoodfood.com/recipes/collection/5-minute-meal-recipes"
+        class="btn btn"
+        style="
+          color: white;
+          background-color: #1E2E6A;
+      "
+        >Enter</a
+      >
+      </div>
+    </div>
+    <div class="card">
+      <div class="img-container"><img src="./assets/images/chargrilled_halloumi_09010_16x9.jpg" class="card-img-top easy-recipe-img" alt="..."></div>
+      <div class="card-body">
+        <h5 class="card-title">10 Min Meals</h5>
+        <p class="card-text">Access a wide range of 10 min recipes for people on the go.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <a
+        href="https://www.bbc.co.uk/food/recipes/chargrilled_halloumi_09010"
+        class="btn btn"
+        style="
+          color: white;
+          background-color: #1E2E6A;
+      "
+        >Enter</a
+      >
+      </div>
+    </div>
+    <div class="card">
+      <div class ="img-container"> <img src="./assets/images/prawn-laksa-curry-bowl-045bb87.webp" class="card-img-top easy-recipe-img" alt="..."></div>
+      <div class="card-body">
+        <h5 class="card-title">15 Min Recipes
+        </h5>
+        <p class="card-text">Access a wide range of 10 min recipes for people on the go.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <a
+        href=""
+        class="btn btn"
+        style="
+          color: white;
+          background-color: #1E2E6A;
+      "
+        >Enter</a
+      >
+      </div>
+    </div>
+  </div>
+  <!-- Recipe cards-->
 
-     
-
-<!-- Article cards-->
-
-<div class="articleCards mt-5" id="my">
-    <h2 class="sectionHeading">Articles</h2>
+<div class="articleCards mt-5" id="recipe-cards">
+    <h2 class="sectionHeading">Recipes</h2>
     
     <div class="row showsNear mt-5">
 
@@ -262,14 +282,61 @@ color: white;
       </div>
     </div>
 </div>
-<!--end of card 4-->
+<!-- end of card 4 -->
+
+<h2 class="sectionHeading">Food News</h2>
+<!-- Article cards -->
+
+<div class="articles row mt-5" id="food-news">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary" style="color: white; background-color: #1E2E6A;">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary" style="color: white; background-color: #1E2E6A;">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary" style="color: white; background-color: #1E2E6A;">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary" style="color: white; background-color: #1E2E6A;">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div> 
 
 <!--footer-->
 <footer class="mt-5">
-  <a href="#" class="fa fa-facebook"></a>
-  <a href="#" class="fa fa-linkedin"></a>
-<a href="#" class="fa fa-twitter"></a>
-  <p class="mt-5">Author: POD 5 group 3<br>
+  <a href="https://www.facebook.com/edX/" class="fa fa-facebook"></a>
+  <a href="https://www.linkedin.com/school/edx/" class="fa fa-linkedin"></a>
+<a href="https://twitter.com/edxonline?lang=en-GB" class="fa fa-twitter"></a>
+<a href="https://github.com/MoskaDowlatzay/World-Recipes"><i class="fa fa-github"></i></a>
+  <p class="mt-1">Author: POD 5 group 3<br>
     <a href="mailto:fakeemail@example.com">fakeemail@example.com</a></p>
 </footer>
 

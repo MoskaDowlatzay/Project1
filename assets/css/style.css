@@ -1,10 +1,6 @@
 *{
     font-family: 'Raleway', sans-serif;}
-
-    .nav-item .dropdown {
-
-    }
-
+    
     .select-country-menu:hover {
       text-decoration: underline;
     }
@@ -12,7 +8,6 @@
       color: rgb(58,110,52)
     }
 
-    
     .column {
         float: left;
         width: 50%;
@@ -33,6 +28,10 @@
       .column a:hover {
         background-color: #ddd;
       }
+
+      .country-btn:hover {
+        background-color: rgb(58,110,52, 0.5);
+      }
       
       /* Clear floats after the columns */
       .row:after {
@@ -40,7 +39,16 @@
         display: table;
         clear: both;
       }
-      
+      /* quick recipe cards */
+      .easy-recipe-img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .img-container {
+        width: 500px;
+        height: 300px;
+      }
 /* cards */
 .content {
     padding: 50px;
@@ -82,4 +90,20 @@
 .fa-twitter {
   background: rgb(58,110,52);
   color: white;
+}
+.fa-github {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  color: white;
+}
+i {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: rgb(58,110,52);
 }
