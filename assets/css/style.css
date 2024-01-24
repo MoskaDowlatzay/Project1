@@ -4,12 +4,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.navbar {
+  background-color: #DCEBF2 !important; 
+}
     
 .select-country-menu:hover {
 text-decoration: underline;
 }
 .dropdown-item:hover {
 color: rgb(58,110,52)
+}
+
+.btn {
+  background-color: rgb(58,110,52) !important;
+  color: white !important;
 }
 
 .column {
@@ -119,4 +128,5 @@ i {
   max-height: 600px;
   overflow: hidden;
   overflow-y: auto;
+  background-color: #DCEBF2;
 }
