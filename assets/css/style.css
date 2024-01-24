@@ -86,6 +86,8 @@ color: rgb(58,110,52)
 .fa-facebook {
   background: rgb(58,110,52);
   color: white;
+  border-radius: 50%;
+  min-width: 4.4%;
 }
 .fa-linkedin {
   background: rgb(58,110,52);
@@ -110,4 +112,10 @@ i {
   text-decoration: none;
   border-radius: 50%;
   background-color: rgb(58,110,52);
+}
+
+.card {
+  max-height: 600px;
+  overflow: hidden;
+  overflow-y: auto;
 }
