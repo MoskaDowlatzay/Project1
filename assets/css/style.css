@@ -102,15 +102,18 @@ color: rgb(58,110,52)
     text-align: center;
     text-decoration: none;
     border-radius: 50%;
+    width: 2.3em;
+    height: 2.3em;
   }
+
   .fa:hover {
     opacity: 0.7;
   }
 .fa-facebook {
   background: rgb(58,110,52);
   color: white;
-  border-radius: 50%;
-  min-width: 4.4%;
+  /* border-radius: 50%;
+  min-width: 4.4%; */
 }
 .fa-linkedin {
   background: rgb(58,110,52);
