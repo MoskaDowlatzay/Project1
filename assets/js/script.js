@@ -93,7 +93,7 @@ function getRecipeByCountries() {
             </p>
             <a href=` +
                 carrot.meals[0].strSource +
-                ` class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
+                `" class="btn btntarget="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
             </div>
             </div>
             </div>`;
@@ -116,7 +116,7 @@ function renderBtn() {
       `">` +
       selectedCountries[i] +
       `</button>
-              <button type="button" class="closing-btn close border-0 bg-body" aria-label="Close" data-index2="` +
+              <button type="button" class="closing-btn close border-0 bg-body text-danger fw-bold" aria-label="Close" data-index2="` +
       i +
       `" >x</button>
             </div> `;
