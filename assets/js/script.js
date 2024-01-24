@@ -1,8 +1,6 @@
 // const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
 // const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be';
 
-// const mealApiKey = '1'
-
 // fetch to get random recipe related news from news API / it works, displays 4 news /html will change, createEl should be updated
 function getRandomNews() {
   // const queryUrl = `https://newsapi.org/v2/everything?q=recipe&apiKey=${newsApiKey}`
@@ -75,7 +73,7 @@ let mealInst = [];
 let storeObj = [];
 let selectedCountry = [];
 function getRecipeByCountries() {
-    $(".showsNear").empty();
+  $(".showsNear").empty();
   if (!(selectedCountry === null)) {
     // at first we need to get countries it give only food name and img
     const queryUrlMeal = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${selectedCountry}`;
@@ -84,60 +82,48 @@ function getRecipeByCountries() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data); 
-    //   let mealObj = {
-    //     }
-    //     for (let i = 0; i < 4; i++) {
-    //         let key = "meal" + i;
-    //         mealObj[key]={
-    //             title: '',
-    //             img: '',
-    //             inst: '',
-    //             source: ''
-    //         }
-    //         mealObj[key].title = data.meals[i].strMeal
-    //         mealObj[key].img = data.meals[i].strMealThumb
-    //         // console.log(data.meals[i].strMealThumb)
-    //         // return data.meals[i].strMeal, data.meals[i].strMealThumb
-    //     }
-    //     console.log(mealObj);
-    //   });
-    let count = 0;
-    for (let i = 0; i < 4; i++) {
-        count++
-        
-      let mealNameOne = data.meals[i].strMeal;
-      console.log(mealNameOne)
-      const queryUrlMealDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameOne}`;
-      fetch(queryUrlMealDetails)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (carrot) {
-            // $(".showsNear").empty();
-          const createRecipeEl =
-            `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
+        console.log(data);
+
+        let count = 0;
+        for (let i = 0; i < 4; i++) {
+          count++;
+
+          let mealNameOne = data.meals[i].strMeal;
+          // console.log(mealNameOne)
+          const queryUrlMealDetails = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameOne}`;
+          fetch(queryUrlMealDetails)
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (carrot) {
+              // $(".showsNear").empty();
+              const createRecipeEl =
+                `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
             <div class="card">  
             <h5 class="card-title"></h5>      
             <div class="card-body">
-            // <h5 class="card-title">`+ data.meals[i].strMeal +`</h5>
-            // <img src="`+ data.meals[i].strMealThumb+`" class="card-img-top" alt="..."/>
+            <h5 class="card-title">` +
+                data.meals[i].strMeal +
+                `</h5>
+            <img src="` +
+                data.meals[i].strMealThumb +
+                `" class="card-img-top" alt="..."/>
             <p class="card-text">
                 ` +
-            carrot.meals[0].strInstructions +
-            `
+                carrot.meals[0].strInstructions +
+                `
             </p>
             <a href=` +
-            carrot.meals[0].strSource +
-            ` class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
+                carrot.meals[0].strSource +
+                ` class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
             </div>
             </div>
             </div>`;
-            console.log(count);
-          $(".showsNear").append(createRecipeEl);
-        });
-    }
-});
+              // console.log(count);
+              $(".showsNear").append(createRecipeEl);
+            });
+        }
+      });
   }
 }
 
@@ -145,66 +131,69 @@ function getRecipeByCountries() {
 let selectedCountries = [];
 init();
 function renderBtn() {
-    $(".selected-countries-container").empty();   
-    for (let i = 0; i <selectedCountries.length; i++) {
-        const creatBtn =
-            `<div class="button-container mx-3 ">
-                <button class="country-btn btn border rounded" type="submit" data-index="`+ i +`">` +
-            selectedCountries[i] +
-            `</button><button type="button" class="closing-btn close border-0 bg-body" aria-label="Close"><span class="h4 text-danger" aria-hidden="true">&times;</span></button>
+  $(".selected-countries-container").empty();
+  for (let i = 0; i < selectedCountries.length; i++) {
+    const creatBtn =
+      `<div class="button-container mx-3 ">
+              <button class="country-btn btn border rounded" type="submit" data-index="` +
+      i +
+      `">` +
+      selectedCountries[i] +
+      `</button>
+              <button type="button" class="closing-btn close border-0 bg-body" aria-label="Close" index="` +
+      i +
+      `" ><span class="h4 text-danger" aria-hidden="true">&times;</span></button>
             </div> `;
-            
-        $(".selected-countries-container").append(creatBtn);
 
-        // $(".country-btn").on("click", function (e) {
-        // const needRecipe = $(e.target).text().trim();
-        // $(".showsNear").empty();
-        // // location.reload();
-        // //   console.log("country i need recipe: " + needRecipe);
-        // changeSelectedCountry(needRecipe);
-        // // console.log(selectedCountry);
-        // getRecipeByCountries(needRecipe);
-        // });
+    $(".selected-countries-container").append(creatBtn);
 
-        // $(".closing-btn").on("click", function (e) {
-        // const btnName = $(e.target).text().trim();
-        // //   console.log(btnName);
-        // let i = selectedCountries.indexOf(btnName);
-        // selectedCountries.splice(i, 1);
-        // //   console.log(selectedCountries);
-        // toStoreCountries(); //update local storage
-        // renderBtn();
-        // // location.reload();
-        // });
-        //   console.log(creatBtn);
-    }
+    // $(".closing-btn").on("click", function (e) {
+    // const btnName = $(e.target).text().trim();
+    // //   console.log(btnName);
+    // let i = selectedCountries.indexOf(btnName);
+    // selectedCountries.splice(i, 1);
+    // //   console.log(selectedCountries);
+    // toStoreCountries(); //update local storage
+    // renderBtn();
+    // // location.reload();
+    // });
+    //   console.log(creatBtn);
+  }
 }
 
-// $(".country-btn").on("click", function (e) {
-//     const needRecipe = $(e.target).text().trim();
-//     $(".showsNear").empty();
-//     // location.reload();
-//     //   console.log("country i need recipe: " + needRecipe);
-//     changeSelectedCountry(needRecipe);
-//     // console.log(selectedCountry);
-//     getRecipeByCountries(needRecipe);
-//     });
-
-$(".selected-countries-container").on('click', function(e) {
-    const targetEl = e.target;
-    console.log(targetEl)
-    let index = targetEl.getAttribute('data-index');
-
-    console.log(selectedCountries[index]);
+$(".selected-countries-container").on("click", function (e) {
+  const targetEl = e.target;
+  console.log(targetEl);
+  // if (targetEl.hasClass("country-btn")) {
+    // console.log(targetEl)
+    let index = targetEl.getAttribute("data-index");
+    // let i = targetEl.getAttribute('index');
+    console.log(i);
     changeSelectedCountry(selectedCountries[index]);
     getRecipeByCountries();
+  // }
 });
 
+// $(".selected-countries-container").on("click", function () {
+//   console.log('clicked')
+//   // el.stopPropagation();
+//   const btnName = el.target;
+//   const targetBtn = el.target;
 
-
+//   console.log(btnName.text());
+//   console.log(targetBtn.children().ed(1));
+  // const targetClosingEl = el.target;
+  // console.log(targetClosingEl)
+  // let closingIndex = btnName.getAttribute("index");
+  // console.log(closingIndex);
+  // let i = selectedCountries.indexOf(btnName);
+  // selectedCountries.splice(i, 1);
+  // toStoreCountries();
+  // renderBtn();
+// });
 
 function init() {
-//   console.log("init");
+  //   console.log("init");
   const storedCountries =
     JSON.parse(localStorage.getItem("selected-countries")) || [];
   if (storedCountries !== null) {
@@ -217,23 +206,19 @@ function init() {
 // let selectedCountries = storedCountries; //set storedCountries to selectedCountries to save display data after reload the page
 $(".dropdown-item").each(function (index, element) {
   const countryName = $(element).text().trim();
-  // console.log('Country Name:', countryName);
   $(element).on("click", function () {
-    // console.log('Clicked on:', countryName);
     if (!selectedCountries.includes(countryName)) {
       //to avoid btn duplication
       selectedCountries.push(countryName);
     }
     selectedCountry = countryName;
-    // console.log(selectedCountry);
     toStoreCountries(); //store data in loca storage
-    // console.log(selectedCountries);
     renderBtn(); //call render btn to display buttons
     getRecipeByCountries(selectedCountry);
     // changeSelectedCountry(countryName);
   });
 });
-// renderBtn();
+renderBtn();
 
 // when closing tag on button is clicked delete countryname from local storage and from array / figure out how to delete from dislplay without reloading the page
 // $('.close').each(function(index, el) {
@@ -252,22 +237,6 @@ $(".dropdown-item").each(function (index, element) {
 //     })
 //     // renderBtn();
 
-// })
-
-// select countrybtn list recipe
-// $('.country-btn').each(function(index, el){
-//     console.log('clicked country')
-//     const needRecipe = $(el).text().trim();
-//     // $(el).on('click', function(){
-
-//     //     $('.showsNear').empty();
-//     //     // location.reload();
-//     //     console.log('country i need recipe: ' + needRecipe)
-//     //     changeSelectedCountry(needRecipe);
-//     //     // console.log(selectedCountry);
-//     //     getRecipeByCountries(needRecipe);
-
-//     // })
 // })
 
 function changeSelectedCountry(newVal) {
