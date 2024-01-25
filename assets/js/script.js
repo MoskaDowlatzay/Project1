@@ -97,7 +97,6 @@ function getRecipeByCountries() {
             </div>
             </div>
             </div>`;
-              // console.log(count);
               $(".dropdown-recipes").append(createRecipeEl);
             });
         }
