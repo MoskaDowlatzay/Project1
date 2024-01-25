@@ -57,7 +57,7 @@ Need to learn how to allocate tasks and write clean code.
 
 ## Authors
 Moska Dowlatzay [https://github.com/MoskaDowlatzay] [https://www.linkedin.com/in/moska-dowlatzay/]
-Joanna Head [https://github.com/joannamhead]
+Joanna Head [https://github.com/joannamhead] [www.linkedin.com/in/joanna-head-868b40180]
 Szilvia Horvath [https://github.com/hszilvi] [https://www.linkedin.com/in/horvathszilvi/]
 
 
