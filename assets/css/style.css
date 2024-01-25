@@ -158,13 +158,15 @@ i {
 }
 
 .card {
-  max-height: 600px;
+  max-height: 650px;
   overflow: hidden;
   /* overflow-y: auto; */
   background-color: white;
 
   transition: max-height 0.3s ease; 
 }
+
+
 
 .card:hover {
   max-height: none; 
