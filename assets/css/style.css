@@ -23,8 +23,13 @@ text-decoration: underline;
 color: rgb(58,110,52)
 }
 
-.btn:hover {
+.btn {
   background-color: rgb(58,110,52) !important;
+  color: white !important;
+}
+
+.btn:hover {
+  background-color: #1E2E6A !important;
   color: white !important;
 }
 
