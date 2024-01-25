@@ -23,6 +23,7 @@ If I scroll further down the webpage, articles related to food and recipes will 
 ## Screenshots
 ![main page](./assets/images/Screenshot-main-wcountires-World%20Foods.png)
 [mobile view](./assets/images/Screenshot-mobile-World%20Foods.png)
+[dropdown menu](./assets/images/Screenshot-dropdown-World%20Foods.png)
 [local storage](./assets/images/localstorage-screenshot.png)
 [wireframe main](./assets/images/main-wireframe.jpg)
 [wireframe country listed](./assets/selected-country-wf.png)
