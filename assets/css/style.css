@@ -13,6 +13,11 @@
   color: white !important;
   font-weight: bold;
 }
+
+.navbar-toggler-icon {
+  background-color: white !important;
+}
+
 .nav-link:hover {
   color:greenyellow !important;
 }
