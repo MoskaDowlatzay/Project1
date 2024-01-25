@@ -25,25 +25,33 @@ function getRandomNews() {
       // create news blocks pull data from arrays // card html element might change!
       for (let i = 0; i < newsTitle.length; i++) {
         const createNewsEl =
-          `<div class="col-sm-6">
-            <div class="card">
-              <img src="` +
-          newsImg[i] +
-          `" class="card-img-top" style="width: 100%; height: 100%; object-fit: cover; overflow: hidden;" alt="...">
-                <h5 class="card-title mt-4">` +
-          newsTitle[i] +
-          `</h5>
-                
-                <p class="card-text">Published: ` +
-          newsContent[i] +
-          `</p>
-                <a href="` +
-          newsUrl[i] +
-          `" class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52);">Read the article</a>
-
+        ` <div class="col-sm-12 col-md-6 col-lg-6 ">
+        <div class="articles food-news row mt-5">
+          <div class="card mb-3" style="height: 220px;">
+            <div class="row g-0" style="height: 100%;">
+              <div class="col-md-4">
+                <div class="img-articles"><img src="` +
+                newsImg[i] +
+                `" class="img-fluid rounded-start" alt="..." style="height: 100%; object-fit: cover;"></div>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body bg-white">
+                  <h5 class="card-title">` +
+                  newsTitle[i] +
+                  `</h5>
+                  <p class="card-text">` +
+                  newsContent[i] +
+                  `</p>
+                  <a href="` +
+                  newsUrl[i] +
+                  `" target="_blank" class="btn btn-primary" style="color: white; background-color: #1E2E6A;">Read more</a>
+                </div>
+              </div>
             </div>
-          </div>`;
-        $(".articles").append(createNewsEl);
+          </div>
+        </div>
+      </div>`
+        $(".articles-section").append(createNewsEl);
       }
     });
 }
