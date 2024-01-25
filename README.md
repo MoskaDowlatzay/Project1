@@ -11,6 +11,7 @@
 [Continued_developement](#Continued_developement)
 [Authors](#Author)
 [Sources](#Sources)
+[Credits](#Credits)
 
 # Overview
 We created a website where user can find recipes from all over the world and check out some food related news as an extra.
@@ -33,6 +34,8 @@ If I scroll further down the webpage, articles related to food and recipes will 
 the github page of the solution[https://github.com/MoskaDowlatzay/World-Recipes]
 live link[https://moskadowlatzay.github.io/World-Recipes/]
 
+Screen recording of deployed page [https://www.loom.com/share/d378123ba619460bbb00105b9b0548e1?sid=dbd84cd4-cb71-45e2-b22b-00ad1cf38445]
+
 ## Our_process
 Tasks and roles:
     Gathering information about APIs
@@ -54,10 +57,16 @@ Need to learn how to allocate tasks and write clean code.
 
 ## Authors
 Moska Dowlatzay [https://github.com/MoskaDowlatzay] [https://www.linkedin.com/in/moska-dowlatzay/]
-Joanna Head [https://github.com/joannamhead] 
+Joanna Head [https://github.com/joannamhead]
 Szilvia Horvath [https://github.com/hszilvi] [https://www.linkedin.com/in/horvathszilvi/]
 
 
 # Sources
 https://www.themealdb.com/
 https://gnews.io/
+
+# Credits
+credits for the quick meals images and links
+https://www.bbcgoodfood.com/recipes/collection/5-minute-meal-recipes
+https://www.bbc.co.uk/food/recipes/chargrilled_halloumi_09010
+https://www.bbcgoodfood.com/recipes/prawn-laksa-curry-bowl
