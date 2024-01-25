@@ -21,8 +21,8 @@ Countries I click will be saved to my search history, so I can access them again
 If I scroll further down the webpage, articles related to food and recipes will be displayed on cards, which I can click on to read the full article.
 
 ## Screenshots
-![main page]()
-[mobile view]()
+![main page](./assets/images/Screenshot-main-wcountires-World%20Foods.png)
+[mobile view](./assets/images/Screenshot-mobile-World%20Foods.png)
 [local storage](./assets/images/localstorage-screenshot.png)
 [wireframe main](./assets/images/main-wireframe.jpg)
 [wireframe country listed](./assets/selected-country-wf.png)
