@@ -23,6 +23,7 @@ text-decoration: underline;
 color: rgb(58,110,52)
 }
 
+
 .btn {
   background-color: rgb(58,110,52) !important;
   color: white !important;
@@ -161,4 +162,10 @@ i {
   overflow: hidden;
   overflow-y: auto;
   background-color: white;
+}
+
+.instructions {
+  color: black !important;
+  font-weight: 200;
+  font-size: large;
 }
