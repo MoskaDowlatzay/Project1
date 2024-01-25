@@ -56,7 +56,7 @@ function getRandomNews() {
       }
     });
 }
-// getRandomNews();
+getRandomNews();
 
 let mealName = [];
 let mealImg = [];
