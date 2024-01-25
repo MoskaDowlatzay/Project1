@@ -178,3 +178,13 @@ i {
   font-weight: 200;
   font-size: large;
 }
+
+.img-articles {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.img-articles > img {
+  height: 100%;
+  object-fit: cover;
+}
