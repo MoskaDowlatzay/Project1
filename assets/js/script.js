@@ -1,5 +1,6 @@
 // const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
-// const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be';
+// const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be'; //Szilvis key
+// const newNewsApiKey = '4aac9aa12eb6cd27a8016d5741664db2'; // Moskas key
 
 // fetch to get random recipe related news from news API / it works, displays 4 news /html will change, createEl should be updated
 function getRandomNews() {
