@@ -173,7 +173,7 @@ i {
 
 
 
-.card:hover {
+.recipe-card:hover {
   max-height: none; 
 }
 
@@ -192,4 +192,8 @@ i {
 .img-articles > img {
   height: 100%;
   object-fit: cover;
+}
+
+.food-news {
+  height: 100%;
 }
