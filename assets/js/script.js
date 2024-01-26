@@ -121,7 +121,7 @@ function renderBtn() {
       `<div class="button-container mx-3 ">
               <button class="country-btn btn border rounded" type="submit" data-index="` +
       i +
-      `">` +
+      `" style="color: white; background-color: rgb(58,110,52)">` +
       selectedCountries[i] +
       `</button>
               <button type="button" class="closing-btn close border-0 bg-body text-danger fw-bold" aria-label="Close" data-index2="` +
