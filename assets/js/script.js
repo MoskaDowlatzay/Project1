@@ -1,5 +1,5 @@
 // const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
-const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be'; //Szilvis key
+// const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be'; //Szilvis key
 // const newNewsApiKey = '4aac9aa12eb6cd27a8016d5741664db2'; // Moskas key
 
 // fetch to get random recipe related news from news API / it works, displays 4 news /html will change, createEl should be updated
@@ -56,7 +56,7 @@ function getRandomNews() {
       }
     });
 }
-getRandomNews();
+// getRandomNews();
 
 let mealName = [];
 let mealImg = [];
@@ -85,8 +85,8 @@ function getRecipeByCountries() {
             })
             .then(function (carrot) {
               const createRecipeEl =
-                `<div class="cardContainer col-lg-3 col-md-3 col-sm-12">
-            <div class="card">  
+                `<div class="card-container col-lg-3 col-md-3 col-sm-12">
+            <div class="recipe-card card">  
             <h5 class="card-title"></h5>      
             <div class="card-body">
             <h5 class="card-title">` +
@@ -121,7 +121,7 @@ function renderBtn() {
       `<div class="button-container mx-3 ">
               <button class="country-btn btn border rounded" type="submit" data-index="` +
       i +
-      `">` +
+      `" style="color: white; background-color: rgb(58,110,52)">` +
       selectedCountries[i] +
       `</button>
               <button type="button" class="closing-btn close border-0 bg-body text-danger fw-bold" aria-label="Close" data-index2="` +
