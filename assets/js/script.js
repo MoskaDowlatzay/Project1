@@ -43,7 +43,7 @@ function getRandomNews() {
                   `</p>
                   <a href="` +
                   newsUrl[i] +
-                  `" target="_blank" class="btn btn-primary" style="color: white; background-color: #1E2E6A;">Read more</a>
+                  `" target="_blank" class="btn float-end" style="color: white; background-color: #1E2E6A;">Read more</a>
                 </div>
               </div>
             </div>
@@ -83,23 +83,22 @@ function getRecipeByCountries() {
             .then(function (carrot) {
               const createRecipeEl =
                 `<div class="card-container col-lg-3 col-md-3 col-sm-12">
-            <div class="recipe-card card">  
-            <h5 class="card-title"></h5>      
+            <div class="recipe-card card">    
             <div class="card-body">
-            <h5 class="card-title">` +
+            <h5 class="card-title" style="height: 2.5em;">` +
                 data.meals[i].strMeal +
                 `</h5>
             <img src="` +
                 data.meals[i].strMealThumb +
                 `" class="card-img-top" alt="..."/>
-            <p class="card-text">
+            <p class="recipe-card-text card-text">
                 ` +
                 carrot.meals[0].strInstructions +
                 `
             </p>
             <a href=` +
                 carrot.meals[0].strSource +
-                `" class="btn btn" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
+                `" class="btn float-end" target="_blank" style="color: white; background-color: rgb(58,110,52); ">Read more</a>
             </div>
             </div>
             </div>`;
@@ -115,7 +114,7 @@ function renderBtn() {
   $(".selected-countries-container").empty();
   for (let i = 0; i < selectedCountries.length; i++) {
     const creatBtn =
-      `<div class="button-container mx-3 ">
+      `<div class="button-container mx-3 mt-3 ">
               <button class="country-btn btn border rounded" type="submit" data-index="` +
       i +
       `" style="color: white; background-color: rgb(58,110,52)">` +
