@@ -1,10 +1,8 @@
-// const newsApiKey = '5dee72a8871c486ba5572ac2786a74b0';
 // const newNewsApiKey = '50d6ff56ed3fabcfebc9c75d14f055be'; //Szilvis key
 // const newNewsApiKey = '4aac9aa12eb6cd27a8016d5741664db2'; // Moskas key
 
 // fetch to get random recipe related news from news API / it works, displays 4 news /html will change, createEl should be updated
 function getRandomNews() {
-  // const queryUrl = `https://newsapi.org/v2/everything?q=recipe&apiKey=${newsApiKey}`
   const queryUrl = `https://gnews.io/api/v4/search?q=recipe&apikey=${newNewsApiKey}`;
   fetch(queryUrl)
     .then(function (response) {
@@ -74,7 +72,6 @@ function getRecipeByCountries() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
         // with a second request we get 4 recipes with search selected country
         for (let i = 0; i < 4; i++) {
           let mealNameOne = data.meals[i].strMeal;
@@ -134,7 +131,6 @@ function renderBtn() {
 // on click update recipes to country or delete the country and update local storage
 $(".selected-countries-container").on("click", function (e) {
   const targetEl = $(e.target);
-  console.log(targetEl);
   if (targetEl.hasClass("country-btn")) {
     let index = targetEl.attr("data-index");
     changeSelectedCountry(selectedCountries[index]);
@@ -169,7 +165,6 @@ $(".dropdown-item").each(function (index, element) {
     getRecipeByCountries(selectedCountry);
   });
 });
-// renderBtn();
 
 function changeSelectedCountry(newVal) {
   selectedCountry = newVal;
