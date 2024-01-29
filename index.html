@@ -94,46 +94,29 @@
   </div>
 
   <!-- Country buttons section -->
-  <div class="selected-countries-container d-inline-flex mt-5">
-    <div class="button-container mx-3 border rounded">
-      <button class="btn" type="submit">Country Name</button><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    </div>  
-    <div class="button-container mx-3 border rounded">
-      <button class="btn" type="submit">Country Name</button><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    </div>  
-    <div class="button-container mx-3 border rounded">
-      <button class="btn" type="submit">Country Name</button><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    </div>  
+  <div class="selected-countries-container d-flex flex-wrap mt-5" style="width: 100%;">
+  <!-- here come the country btns from js -->
   </div>
-
-
   <!-- Recipe cards-->
   <h2 class="section-heading mt-5"id="recipe-cards">Recipes</h2>
   <h3 class="section-heading instructions mt-5">Click a country from the drop-down menu or the country buttons above to display four delicious recipes!</h3>
-
   <div class="row dropdown-recipes mt-5">
+    <!-- here come the recipes from API js -->
   </div>
 
  <!-- Online quick recipes-->
  <h2 class="section-heading mt-5 mb-5">Quick Meals</h2>
-
  <div class="card-group" id="quick-meals">
    <div class="card">
      <div class="img-container"><img class="food-image" src="./assets/images/5 min gnocci recipe.webp" class="card-img-top easy-recipe-img" alt="gnocci">
      </div>
      <div class="card-body">
-       <h5 class="card-title">5 Min Meals</h5>
-       <p class="card-text">Access a wide range of five min recipes.</p>
-       <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-       <a
-       href="https://www.bbcgoodfood.com/recipes/collection/5-minute-meal-recipes"
-       class="btn btn"
-       style="
-         color: white;
-         background-color: rgb(58,110,52);
-     "
-       >Enter</a
-     >
+        <h5 class="card-title">5 Min Meals</h5>
+        <p class="card-text">Access a wide range of five min recipes.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+        <a href="https://www.bbcgoodfood.com/recipes/collection/5-minute-meal-recipes" target="_blank"
+        class="btn float-end" style="color: white; background-color: rgb(58,110,52);">Enter</a>
+       
      </div>
    </div>
    <div class="card">
@@ -143,14 +126,11 @@
        <p class="card-text">Access a wide range of 10 min recipes for people on the go.</p>
        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
        <a
-       href="https://www.bbc.co.uk/food/recipes/chargrilled_halloumi_09010"
-       class="btn btn"
+       href="https://www.bbc.co.uk/food/recipes/chargrilled_halloumi_09010" target="_blank"
+       class="btn float-end"
        style="
          color: white;
-         background-color: rgb(58,110,52);
-     "
-       >Enter</a
-     >
+         background-color: rgb(58,110,52);">Enter</a>
      </div>
    </div>
    <div class="card">
@@ -161,8 +141,8 @@
        <p class="card-text">Access a wide range of 10 min recipes for people on the go.</p>
        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
        <a
-       href="https://www.bbcgoodfood.com/recipes/prawn-laksa-curry-bowl"
-       class="btn btn"
+       href="https://www.bbcgoodfood.com/recipes/prawn-laksa-curry-bowl" target="_blank"
+       class="btn float-end"
        style="
          color: white;
          background-color: rgb(58,110,52);
@@ -189,7 +169,7 @@
               <div class="card-body bg-white">
                 <h5 class="card-title">Take your tastebuds on a sunny vacation with tropical flavours</h5>
                 <p class="card-text">Plus, a recipe for pinapple coconut upside down cake</p>
-                <a href="#" target="_blank" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52)">Read more</a>
+                <a href="#" target="_blank" class="btn float-end" style="color: white; background-color: rgb(58,110,52)">Read more</a>
               </div>
             </div>
           </div>
@@ -207,7 +187,7 @@
               <div class="card-body bg-white">
                 <h5 class="card-title">How to make crumpets - recipe</h5>
                 <p class="card-text">Is there anything than this British teatime classic, toasted and slathered in butter? Well, yes, actually - a homemade crumpet, toasted and slathered in butter.</p>
-                <a href="#" target="_blank" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52)">Read more</a>
+                <a href="#" target="_blank" class="btn float-end" style="color: white; background-color: rgb(58,110,52)">Read more</a>
               </div>
             </div>
           </div>
@@ -225,7 +205,7 @@
               <div class="card-body bg-white">
                 <h5 class="card-title">"Sephora kids" are amassing pricey skincare collections. Here's how moms are dealing</h5>
                 <p class="card-text">Children can't get enough Drunk Elephant or Glow Recipe</p>
-                <a href="#" target="_blank" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52)">Read more</a>
+                <a href="#" target="_blank" class="btn float-end" style="color: white; background-color: rgb(58,110,52)">Read more</a>
               </div>
             </div>
           </div>
@@ -243,7 +223,7 @@
               <div class="card-body bg-white">
                 <h5 class="card-title">Recipe box launches new range of meals under 650 calories</h5>
                 <p class="card-text">New dishes are being added every week</p>
-                <a href="#" target="_blank" class="btn btn-primary" style="color: white; background-color: rgb(58,110,52)">Read more</a>
+                <a href="#" target="_blank" class="btn float-end" style="color: white; background-color: rgb(58,110,52)">Read more</a>
               </div>
             </div>
           </div>

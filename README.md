@@ -3,15 +3,15 @@
 # Table of content
 
 [Overview](#Overview)
-[Screenshots](##Screenshots)
-[Links](###Links)
-[Our_process](##Our_process)
-[Built_with](###Built_with)
-[What_We_learned](##What_We_learned)
-[Continued_developement](###Continued_developement)
-[Authors](##Authors)
+[Screenshots](#Screenshots)
+[Links](#Links)
+[Our_process](#Our_process)
+[Built_with](#Built_with)
+[What_We_learned](#What_We_learned)
+[Continued_developement](#Continued_developement)
+[Authors](#Authors)
 [Sources](#Sources)
-[Credits](##Credits)
+[Credits](#Credits)
 
 # Overview
 We created a website where user can find recipes from all over the world and check out some food related news as an extra.
